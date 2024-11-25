@@ -23,7 +23,7 @@ class BaseLearner(object):
         self._memory_size = args["memory_size"]
         self._memory_per_class = args.get("memory_per_class", None)
         self._fixed_memory = args.get("fixed_memory", False)
-        self._device = args["device"][0]
+        self._device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self._multiple_gpus = args["device"]
 
     @property

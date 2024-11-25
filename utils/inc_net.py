@@ -8,38 +8,38 @@ import timm
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def get_convnet(args):
+def get_convnet(args, pretrained=False):
 
     name = args["convnet_type"].lower()
     #ResNet
     if name=="pretrained_resnet18":
         from convs.resnet import resnet18
         model=resnet18(pretrained=False, args=args)
-        model.load_state_dict(torch.load("./pretrained_models/resnet18-f37072fd.pth"),strict=False)
+        #model.load_state_dict(torch.load("./pretrained_models/resnet18-f37072fd.pth"), strict=False)
         return model.eval()
     elif name=="pretrained_resnet50":
         from convs.resnet import resnet50
         model=resnet50(pretrained=False, args=args)
-        model.load_state_dict(torch.load("./pretrained_models/resnet50-11ad3fa6.pth"),strict=False)
+        model.load_state_dict(torch.load("./pretrained_models/resnet50-11ad3fa6.pth"), strict=False)
         return model.eval()
     elif name=="pretrained_resnet101":
         from convs.resnet import resnet101
         model=resnet101(pretrained=False, args=args)
-        model.load_state_dict(torch.load("./pretrained_models/resnet101-cd907fc2.pth"),strict=False)
+        model.load_state_dict(torch.load("./pretrained_models/resnet101-cd907fc2.pth"), strict=False)
         return model.eval()
     elif name=="pretrained_resnet152":
         from convs.resnet import resnet152
         model=resnet152(pretrained=False, args=args)
-        model.load_state_dict(torch.load("./pretrained_models/resnet152-f82ba261.pth"),strict=False)
+        model.load_state_dict(torch.load("./pretrained_models/resnet152-f82ba261.pth"), strict=False)
         return model.eval()
     
     #SimpleCIL or SimpleCIL w/ Finetune
     elif name=="pretrained_vit_b16_224" or name=="vit_base_patch16_224":
-        model=timm.create_model("vit_base_patch16_224",pretrained=True, num_classes=0)
+        model=timm.create_model("vit_base_patch16_224", pretrained=True, num_classes=0)
         model.out_dim=768
         return model.eval()
     elif name=="pretrained_vit_b16_224_in21k" or name=="vit_base_patch16_224_in21k":
-        model=timm.create_model("vit_base_patch16_224_in21k",pretrained=True, num_classes=0)
+        model=timm.create_model("vit_base_patch16_224_in21k", pretrained=True, num_classes=0)
         model.out_dim=768
         return model.eval()
     
@@ -184,12 +184,12 @@ def load_state_vision_model(model, ckpt_path):
 
 
 class BaseNet(nn.Module):
-    def __init__(self, args):
+    def __init__(self, args, pretrained):
         super(BaseNet, self).__init__()
 
 
         print('This is for the BaseNet initialization.')
-        self.convnet = get_convnet(args)
+        self.convnet = get_convnet(args, pretrained)
         print('After BaseNet initialization.')
         self.fc = None
 
