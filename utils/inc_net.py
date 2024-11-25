@@ -184,12 +184,12 @@ def load_state_vision_model(model, ckpt_path):
 
 
 class BaseNet(nn.Module):
-    def __init__(self, args, pretrained):
+    def __init__(self, args):
         super(BaseNet, self).__init__()
 
 
         print('This is for the BaseNet initialization.')
-        self.convnet = get_convnet(args, pretrained)
+        self.convnet = get_convnet(args)
         print('After BaseNet initialization.')
         self.fc = None
 
