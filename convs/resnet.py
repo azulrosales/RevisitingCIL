@@ -2,6 +2,8 @@
 Reference:
 https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 '''
+import os
+import urllib.request
 import torch
 import torch.nn as nn
 try:
@@ -265,9 +267,13 @@ class ResNet(nn.Module):
 def _resnet(arch, block, layers, pretrained, progress, **kwargs):
     model = ResNet(block, layers, **kwargs)
     if pretrained:
-        state_dict = load_state_dict_from_url(model_urls[arch],
-                                              progress=progress)
-        model.load_state_dict(state_dict)
+        url = model_urls[arch]
+        weights_path = os.path.basename(url)
+        if not os.path.exists(weights_path):
+            print("Downloading model weights...")
+            urllib.request.urlretrieve(url, weights_path)
+            print("Download complete!")
+        model.load_state_dict(torch.load(weights_path, weights_only=True), strict=False)  # Load downloaded weights
     return model
 
 

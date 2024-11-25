@@ -109,7 +109,7 @@ def _set_device(args):
         devices.append(torch.device("cpu"))
     else:
         # Otherwise, treat device_type as a list of device indices
-        for device in device_type.split(','):
+        for device in device_type:
             device = torch.device("cuda:{}".format(device))
             devices.append(device)
 

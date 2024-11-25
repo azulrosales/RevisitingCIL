@@ -2,4 +2,5 @@ __pycache__/
 venv/
 logs/
 data/
-exps/*
+exps/
+*.pth

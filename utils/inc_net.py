@@ -14,23 +14,19 @@ def get_convnet(args, pretrained=False):
     #ResNet
     if name=="pretrained_resnet18":
         from convs.resnet import resnet18
-        model=resnet18(pretrained=False, args=args)
-        #model.load_state_dict(torch.load("./pretrained_models/resnet18-f37072fd.pth"), strict=False)
+        model = resnet18(pretrained=True, args=args)
         return model.eval()
     elif name=="pretrained_resnet50":
         from convs.resnet import resnet50
-        model=resnet50(pretrained=False, args=args)
-        model.load_state_dict(torch.load("./pretrained_models/resnet50-11ad3fa6.pth"), strict=False)
+        model = resnet50(pretrained=True, args=args)
         return model.eval()
     elif name=="pretrained_resnet101":
         from convs.resnet import resnet101
-        model=resnet101(pretrained=False, args=args)
-        model.load_state_dict(torch.load("./pretrained_models/resnet101-cd907fc2.pth"), strict=False)
+        model = resnet101(pretrained=True, args=args)
         return model.eval()
     elif name=="pretrained_resnet152":
         from convs.resnet import resnet152
-        model=resnet152(pretrained=False, args=args)
-        model.load_state_dict(torch.load("./pretrained_models/resnet152-f82ba261.pth"), strict=False)
+        model = resnet152(pretrained=True, args=args)
         return model.eval()
     
     #SimpleCIL or SimpleCIL w/ Finetune
@@ -49,14 +45,11 @@ def get_convnet(args, pretrained=False):
             if 'resnet' in name:
                 from convs import resnet_scale
                 if name=="pretrained_resnet18_ssf":
-                    model = resnet_scale.resnet18_scale(pretrained=False, args=args)
-                    model.load_state_dict(torch.load("./pretrained_models/resnet18-f37072fd.pth"),strict=False)
+                    model = resnet_scale.resnet18_scale(pretrained=True, args=args)
                 elif name=="pretrained_resnet50_ssf":
-                    model = resnet_scale.resnet50_scale(pretrained=False, args=args)
-                    model.load_state_dict(torch.load("./pretrained_models/resnet50-11ad3fa6.pth"),strict=False)
+                    model = resnet_scale.resnet50_scale(pretrained=True, args=args)
                 elif name=="pretrained_resnet101_ssf":
-                    model = resnet_scale.resnet101_scale(pretrained=False, args=args)
-                    model.load_state_dict(torch.load("./pretrained_models/resnet101-cd907fc2.pth"),strict=False)
+                    model = resnet_scale.resnet101_scale(pretrained=True, args=args)
                 return model.eval()
 
             from convs import vision_transformer_ssf
