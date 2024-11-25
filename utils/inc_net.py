@@ -8,28 +8,28 @@ import timm
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def get_convnet(args, pretrained=False):
+def get_convnet(args):
 
     name = args["convnet_type"].lower()
-    #Resnet
+    #ResNet
     if name=="pretrained_resnet18":
-        from convs.resnet import resnet18, resnet34, resnet50, resnet101, resnet152
-        model=resnet18(pretrained=False,args=args)
+        from convs.resnet import resnet18
+        model=resnet18(pretrained=False, args=args)
         model.load_state_dict(torch.load("./pretrained_models/resnet18-f37072fd.pth"),strict=False)
         return model.eval()
     elif name=="pretrained_resnet50":
-        from convs.resnet import resnet18, resnet34, resnet50, resnet101, resnet152
-        model=resnet50(pretrained=False,args=args)
+        from convs.resnet import resnet50
+        model=resnet50(pretrained=False, args=args)
         model.load_state_dict(torch.load("./pretrained_models/resnet50-11ad3fa6.pth"),strict=False)
         return model.eval()
     elif name=="pretrained_resnet101":
-        from convs.resnet import resnet18, resnet34, resnet50, resnet101, resnet152
-        model=resnet101(pretrained=False,args=args)
+        from convs.resnet import resnet101
+        model=resnet101(pretrained=False, args=args)
         model.load_state_dict(torch.load("./pretrained_models/resnet101-cd907fc2.pth"),strict=False)
         return model.eval()
     elif name=="pretrained_resnet152":
-        from convs.resnet import resnet18, resnet34, resnet50, resnet101, resnet152
-        model=resnet152(pretrained=False,args=args)
+        from convs.resnet import resnet152
+        model=resnet152(pretrained=False, args=args)
         model.load_state_dict(torch.load("./pretrained_models/resnet152-f82ba261.pth"),strict=False)
         return model.eval()
     
@@ -64,7 +64,7 @@ def get_convnet(args, pretrained=False):
                 model = timm.create_model("vit_base_patch16_224_ssf", pretrained=True, num_classes=0)
                 model.out_dim=768
             elif name=="pretrained_vit_b16_224_in21k_ssf":
-                model=timm.create_model("vit_base_patch16_224_in21k_ssf",pretrained=True, num_classes=0)
+                model=timm.create_model("vit_base_patch16_224_in21k_ssf", pretrained=True, num_classes=0)
                 model.out_dim=768
             return model.eval()
         else:
@@ -85,7 +85,7 @@ def get_convnet(args, pretrained=False):
                 VPT_type="Shallow"
             Prompt_Token_num=args["prompt_token_num"]
 
-            model = build_promptmodel(modelname=basicmodelname,  Prompt_Token_num=Prompt_Token_num, VPT_type=VPT_type)
+            model = build_promptmodel(modelname=basicmodelname, Prompt_Token_num=Prompt_Token_num, VPT_type=VPT_type)
             prompt_state_dict = model.obtain_prompt()
             model.load_prompt(prompt_state_dict)
             model.out_dim=768
@@ -286,11 +286,11 @@ class IncrementalNet(BaseNet):
     def set_gradcam_hook(self):
         self._gradcam_gradients, self._gradcam_activations = [None], [None]
 
-        def backward_hook(module, grad_input, grad_output):
+        def backward_hook(grad_output):
             self._gradcam_gradients[0] = grad_output[0]
             return None
 
-        def forward_hook(module, input, output):
+        def forward_hook(output):
             self._gradcam_activations[0] = output
             return None
 
