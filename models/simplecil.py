@@ -15,6 +15,8 @@ from utils.toolkit import target2onehot, tensor2numpy
 num_workers = 8
 batch_size=128
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 class Learner(BaseLearner):
     def __init__(self, args):
         super().__init__(args)
@@ -31,8 +33,8 @@ class Learner(BaseLearner):
         with torch.no_grad():
             for i, batch in enumerate(trainloader):
                 (_,data,label)=batch
-                data=data.cuda()
-                label=label.cuda()
+                data=data.to(device)
+                label=label.to(device)
                 embedding=model.convnet(data)
                 embedding_list.append(embedding.cpu())
                 label_list.append(label.cpu())

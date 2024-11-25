@@ -102,7 +102,7 @@ def _train(args):
     
 def _set_device(args):
     device_type = args["device"]
-    gpus = []
+    devices = []
 
     for device in device_type:
         if device_type == -1:
@@ -110,17 +110,18 @@ def _set_device(args):
         else:
             device = torch.device("cuda:{}".format(device))
 
-        gpus.append(device)
+        devices.append(device)
 
-    args["device"] = gpus
+    args["device"] = devices
 
 
 def _set_random():
     torch.manual_seed(1)
-    torch.cuda.manual_seed(1)
-    torch.cuda.manual_seed_all(1)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(1)
+        torch.cuda.manual_seed_all(1)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
 
 
 def print_args(args):

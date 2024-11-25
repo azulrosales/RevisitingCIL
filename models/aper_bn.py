@@ -15,6 +15,7 @@ from utils.toolkit import target2onehot, tensor2numpy
 
 num_workers = 8
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class Learner(BaseLearner):
     def __init__(self, args):
@@ -46,10 +47,10 @@ class Learner(BaseLearner):
         # data_list=[]
         with torch.no_grad():
             for i, batch in enumerate(trainloader):
-                # data, label = [_.cuda() for _ in batch]
+                # data, label = [_.to(device) for _ in batch]
                 (_, data, label) = batch
-                data = data.cuda()
-                label = label.cuda()
+                data = data.to(device)
+                label = label.to(device)
                 # model.module.mode = 'encoder'
                 embedding = model(data)['features']
                 embedding_list.append(embedding.cpu())
@@ -71,7 +72,7 @@ class Learner(BaseLearner):
 
     def update_fc(self, dataloader, class_list, session):
         for batch in dataloader:
-            data, label = [_.cuda() for _ in batch]
+            data, label = [_.to(device) for _ in batch]
             data = self.encode(data).detach()
         new_fc = self.update_fc_avg(data, label, class_list)
 

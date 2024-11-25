@@ -12,7 +12,10 @@ from models.base import BaseLearner
 from utils.toolkit import target2onehot, tensor2numpy
 
 # tune the model at first session with vpt, and then conduct simple shot.
+
 num_workers = 8
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class Learner(BaseLearner):
     def __init__(self, args):
@@ -38,7 +41,6 @@ class Learner(BaseLearner):
         self._known_classes = self._total_classes
     
     def replace_fc(self,trainloader, model, args):
-        
         model = model.eval()
         embedding_list = []
         label_list = []
@@ -46,8 +48,8 @@ class Learner(BaseLearner):
         with torch.no_grad():
             for i, batch in enumerate(trainloader):
                 (_,data,label)=batch
-                data=data.cuda()
-                label=label.cuda()
+                data=data.to(device)
+                label=label.to(device)
                 embedding = model(data)['features']
                 embedding_list.append(embedding.cpu())
                 label_list.append(label.cpu())

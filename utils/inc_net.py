@@ -5,6 +5,8 @@ from torch import nn
 from convs.linears import SimpleLinear, SplitCosineLinear, CosineLinear
 import timm
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 def get_convnet(args, pretrained=False):
 
@@ -520,7 +522,7 @@ class SimpleCosineIncrementalNet(BaseNet):
         super().__init__(args, pretrained)
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
-        fc = self.generate_fc(self.feature_dim, nb_classes).cuda()
+        fc = self.generate_fc(self.feature_dim, nb_classes).to(device)
         if self.fc is not None:
             nb_output = self.fc.out_features
             weight = copy.deepcopy(self.fc.weight.data)
@@ -528,7 +530,7 @@ class SimpleCosineIncrementalNet(BaseNet):
             if nextperiod_initialization is not None:
                 weight = torch.cat([weight, nextperiod_initialization])
             else:
-                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).cuda()])
+                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).to(device)])
             fc.weight = nn.Parameter(weight)
         del self.fc
         self.fc = fc
@@ -543,7 +545,7 @@ class SimpleVitNet(BaseNet):
         super().__init__(args, pretrained)
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
-        fc = self.generate_fc(self.feature_dim, nb_classes).cuda()
+        fc = self.generate_fc(self.feature_dim, nb_classes).to(device)
         if self.fc is not None:
             nb_output = self.fc.out_features
             weight = copy.deepcopy(self.fc.weight.data)
@@ -551,7 +553,7 @@ class SimpleVitNet(BaseNet):
             if nextperiod_initialization is not None:
                 weight = torch.cat([weight, nextperiod_initialization])
             else:
-                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).cuda()])
+                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self.feature_dim).to(device)])
             fc.weight = nn.Parameter(weight)
         del self.fc
         self.fc = fc
@@ -590,7 +592,7 @@ class MultiBranchCosineIncrementalNet(BaseNet):
             self.modeltype='vit'
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
-        fc = self.generate_fc(self._feature_dim, nb_classes).cuda()
+        fc = self.generate_fc(self._feature_dim, nb_classes).to(device)
         if self.fc is not None:
             nb_output = self.fc.out_features
             weight = copy.deepcopy(self.fc.weight.data)
@@ -598,7 +600,7 @@ class MultiBranchCosineIncrementalNet(BaseNet):
             if nextperiod_initialization is not None:
                 weight = torch.cat([weight, nextperiod_initialization])
             else:
-                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self._feature_dim).cuda()])
+                weight = torch.cat([weight, torch.zeros(nb_classes - nb_output, self._feature_dim).to(device)])
             fc.weight = nn.Parameter(weight)
         del self.fc
         self.fc = fc
