@@ -95,7 +95,6 @@ def build_transform(is_train, args):
 class iCIFAR224(iData):
     use_path = False
 
-    
     train_trsf=build_transform(True, None)
     test_trsf=build_transform(False, None)
     common_trsf = [
@@ -113,6 +112,56 @@ class iCIFAR224(iData):
         self.test_data, self.test_targets = test_dataset.data, np.array(
             test_dataset.targets
         )
+
+class FewShotiCIFAR224(iData):
+    use_path = False
+
+    train_trsf=build_transform(True, None)
+    test_trsf=build_transform(False, None)
+    common_trsf = [
+        # transforms.ToTensor(),
+    ]
+
+    class_order = np.arange(100).tolist()
+
+    def __init__(self, shots_per_class=250):
+        super().__init__()
+        self.shots_per_class = shots_per_class
+
+    def download_data(self):
+        train_dataset = datasets.cifar.CIFAR100("./data", train=True, download=True)
+        test_dataset = datasets.cifar.CIFAR100("./data", train=False, download=True)
+        self.train_data, self.train_targets = train_dataset.data, np.array(
+            train_dataset.targets
+        )
+        self.test_data, self.test_targets = test_dataset.data, np.array(
+            test_dataset.targets
+        )
+
+        # Subsample the training data for few-shot
+        self.train_data, self.train_targets = self._subsample_classes(self.train_data, self.train_targets)
+    
+    def _subsample_classes(self, data, targets):
+        '''
+        Restrict the number of samples per class to self.shots_per_class.
+        '''
+        unique_classes = np.unique(targets)
+        new_data = []
+        new_targets = []
+
+        for cls in unique_classes:
+            cls_indices = np.where(targets == cls)[0]
+            # Randomly select self.shots_per_class samples from the class
+            np.random.shuffle(cls_indices)
+            selected_indices = cls_indices[: self.shots_per_class]
+
+            new_data.append(data[selected_indices])
+            new_targets.append(targets[selected_indices])
+
+        new_data = np.concatenate(new_data, axis=0)
+        new_targets = np.concatenate(new_targets, axis=0)
+
+        return new_data, new_targets
 
 class iImageNet1000(iData):
     use_path = True

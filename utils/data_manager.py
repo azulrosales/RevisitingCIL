@@ -1,9 +1,10 @@
 import logging
 import numpy as np
+from collections import Counter
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
-from utils.data import iCIFAR10, iCIFAR100, iImageNet100, iImageNet1000, iCIFAR224, iImageNetR,iImageNetA,CUB, objectnet, omnibenchmark, vtab
+from utils.data import iCIFAR10, iCIFAR100, iImageNet100, iImageNet1000, iCIFAR224, FewShotiCIFAR224, iImageNetR,iImageNetA,CUB, objectnet, omnibenchmark, vtab
 
 
 class DataManager(object):
@@ -157,6 +158,17 @@ class DataManager(object):
             order = idata.class_order
         self._class_order = order
         logging.info(self._class_order)
+        logging.info(self._train_data.shape)
+        logging.info(self._train_targets.shape)
+
+        
+
+        # Assuming train_targets is a NumPy array or a list of class labels
+        class_counts = Counter(self._train_targets)
+
+        # Print the number of samples per class
+        for class_label, count in sorted(class_counts.items()):
+            print(f"Class {class_label}: {count} samples")
 
         # Map indices
         self._train_targets = _map_new_class_index(
@@ -223,6 +235,8 @@ def _get_idata(dataset_name):
         return iImageNet100()
     elif name== "cifar224":
         return iCIFAR224()
+    elif name== "fewshot_cifar224":
+        return FewShotiCIFAR224()
     elif name== "imagenetr":
         return iImageNetR()
     elif name=="imageneta":
