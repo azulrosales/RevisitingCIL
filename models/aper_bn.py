@@ -71,25 +71,35 @@ class Learner(BaseLearner):
         return model
 
     def update_fc(self, dataloader, class_list, session):
+        print('APER BN: Update FC layer')
         for batch in dataloader:
+            # Load data and labels to the device
             data, label = [_.to(device) for _ in batch]
-            data = self.encode(data).detach()
+            # Compute embeddings from the input data
+            data = self.encode(data).detach() 
+        # Update the FC layer using the class prototypes
         new_fc = self.update_fc_avg(data, label, class_list)
 
     def update_fc_avg(self, data, label, class_list):
         new_fc = []
+        # Loop through each class in the class list
         for class_index in class_list:
-            # print(class_index)
+            # Find the indices of data points belonging to the current class
             data_index = (label == class_index).nonzero().squeeze(-1)
+            # Extract embeddings for the class
             embedding = data[data_index]
+            # Compute the class prototype
             proto = embedding.mean(0)
+            # Append the prototype to the list of new FC weights
             new_fc.append(proto)
+            # Update the FC layer weights for the current clas
             self.fc.weight.data[class_index] = proto
-            # print(proto)
+        # Stack all prototypes into a tensor and return
         new_fc = torch.stack(new_fc, dim=0)
         return new_fc
 
     def incremental_train(self, data_manager):
+        print('APER BN: INCREMENTAL TRAIN')
         self._cur_task += 1
         self._total_classes = self._known_classes + data_manager.get_task_size(self._cur_task)
         self._network.update_fc(self._total_classes)
@@ -116,7 +126,7 @@ class Learner(BaseLearner):
             self._network = self._network.module
 
     def _train(self, train_loader, test_loader, train_loader_for_protonet):
-
+        print('APER BN: TRAIN')
         self._network.to(self._device)
 
         # if self._cur_task == 0:
@@ -140,6 +150,7 @@ class Learner(BaseLearner):
         self.replace_fc(train_loader_for_protonet, self._network, None)
 
     def construct_dual_branch_network(self):
+        print('APER BN: Constructing MultiBranchCosineIncrementalNet')
         network = MultiBranchCosineIncrementalNet(self.args, True)
         network.construct_dual_branch_network(self._network)
         self._network = network.to(self._device)
@@ -168,6 +179,7 @@ class Learner(BaseLearner):
         # print(running_dict[key_name]['mean'], running_dict[key_name]['var'], running_dict[key_name]['nbt'])
 
     def clear_running_mean(self):
+        print('APER BN: Cleaning Running Mean')
         # record the index of running mean and variance
         model_dict = self._network.state_dict()
         running_dict = {}
@@ -197,16 +209,20 @@ class Learner(BaseLearner):
                 component.num_batches_tracked = component.num_batches_tracked * 0
 
         # print(running_dict[key_name]['mean'],running_dict[key_name]['var'],running_dict[key_name]['nbt'])
-        print(component.running_mean, component.running_var, component.num_batches_tracked)
+        # print(component.running_mean, component.running_var, component.num_batches_tracked)
 
     def _init_train(self, train_loader, test_loader, optimizer, scheduler):
-        # print the bn statistics of the current model
+        print('APER BN: Initial Training')
+        
+        # Print the bn statistics of the current model
         # self.record_running_mean()
 
         if 'resnet' in self.args['convnet_type']:
+            # Reset the running statistics of the BN layers
             self.clear_running_mean()
 
         prog_bar = tqdm(range(self.args['tuned_epoch']))
+        # Adapt to the current data via forward passing
         with torch.no_grad():
             for _, epoch in enumerate(prog_bar):
                 self._network.train()

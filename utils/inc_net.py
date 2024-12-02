@@ -515,6 +515,7 @@ class SimpleCosineIncrementalNet(BaseNet):
         super().__init__(args, pretrained)
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
+        print('SimpleCosineIncrementalNet: Update FC')
         fc = self.generate_fc(self.feature_dim, nb_classes).to(device)
         if self.fc is not None:
             nb_output = self.fc.out_features
@@ -585,6 +586,7 @@ class MultiBranchCosineIncrementalNet(BaseNet):
             self.modeltype='vit'
 
     def update_fc(self, nb_classes, nextperiod_initialization=None):
+        print('MultiBranchCosineIncrementalNet: Update FC')
         fc = self.generate_fc(self._feature_dim, nb_classes).to(device)
         if self.fc is not None:
             nb_output = self.fc.out_features

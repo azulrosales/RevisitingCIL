@@ -53,6 +53,7 @@ class CosineLinear(nn.Module):
             self.sigma.data.fill_(1)
 
     def forward(self, input):
+        # Cosine similarity
         out = F.linear(F.normalize(input, p=2, dim=1), F.normalize(self.weight, p=2, dim=1))
 
         if self.to_reduce:
