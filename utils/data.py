@@ -1,5 +1,8 @@
 import numpy as np
+import kagglehub
+from torch.utils.data import random_split
 from torchvision import datasets, transforms
+from torchvision.datasets import ImageFolder
 from utils.toolkit import split_images_labels
 
 
@@ -9,8 +12,7 @@ class iData(object):
     common_trsf = []
     class_order = None
 
-
-def build_transform(is_train, args):
+def build_transform(is_train):
     input_size = 224
     resize_im = input_size > 32
     if is_train:
@@ -38,10 +40,9 @@ def build_transform(is_train, args):
 
 class iCIFAR224(iData):
     use_path = False
-
     
-    train_trsf=build_transform(True, None)
-    test_trsf=build_transform(False, None)
+    train_trsf = build_transform(True)
+    test_trsf = build_transform(False)
     common_trsf = [
         # transforms.ToTensor(),
     ]
@@ -57,3 +58,34 @@ class iCIFAR224(iData):
         self.test_data, self.test_targets = test_dataset.data, np.array(
             test_dataset.targets
         )
+        print('self.train_data:', self.train_data)
+        print('Type of self.train_data:', type(self.train_data))
+        print('self.train_targets:', self.train_targets)
+        print('Type of self.train_targets:', type(self.train_targets))
+
+class FruitQuality(iData):
+    use_path = False
+    
+    train_trsf = build_transform(True)
+    test_trsf = build_transform(False)
+    
+    class ConvertToRGB:
+        def __call__(self, img):
+            if img.mode != "RGB":
+                img = img.convert("RGB")
+            return img
+        
+    common_trsf = [
+        ConvertToRGB()
+    ]
+
+    class_order = np.arange(28).tolist()
+
+    def download_data(self):
+        path = kagglehub.dataset_download("muhammad0subhan/fruit-and-vegetable-disease-healthy-vs-rotten") + '/Fruit And Vegetable Diseases Dataset'
+        data = ImageFolder(root=path)
+
+        train_dataset, test_dataset = random_split(data, [0.7, 0.3])
+
+        self.train_data, self.train_targets = split_images_labels(train_dataset.dataset.imgs)
+        self.test_data, self.test_targets = split_images_labels(test_dataset.dataset.imgs)

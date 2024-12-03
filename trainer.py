@@ -9,11 +9,8 @@ import os
 
 
 def train(args):
-
-    device = copy.deepcopy(args["device"])
-
     args["seed"] = copy.deepcopy(args["seed"])
-    args["device"] = device
+    args["device"] = copy.deepcopy(args["device"])
     _train(args)
 
 
@@ -55,7 +52,7 @@ def _train(args):
     )
     model = factory.get_model(args["model_name"], args)
 
-    cnn_curve, nme_curve = {"top1": [], "top5": []}, {"top1": [], "top5": []}
+    cnn_curve = {"top1": [], "top5": []}
     for task in range(data_manager.nb_tasks):
         logging.info("All params: {}".format(count_parameters(model._network)))
         logging.info(

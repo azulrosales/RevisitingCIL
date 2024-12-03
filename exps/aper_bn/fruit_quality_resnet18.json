@@ -1,9 +1,9 @@
 {
     "prefix": "exp",
-    "dataset": "cifar224",
+    "dataset": "fruit-quality",
     "shuffle": true,
-    "init_cls": 5,
-    "increment": 5,
+    "init_cls": 2,
+    "increment": 2,
     "model_name": "aper_bn",
     "convnet_type": "pretrained_resnet18",
     "device": "-1",

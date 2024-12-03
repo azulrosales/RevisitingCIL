@@ -7,7 +7,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def get_convnet(args):
-
     name = args["convnet_type"].lower()
     #ResNet
     if name=="pretrained_resnet18":
@@ -25,7 +24,6 @@ def get_convnet(args):
 class BaseNet(nn.Module):
     def __init__(self, args):
         super(BaseNet, self).__init__()
-
 
         print('This is for the BaseNet initialization.')
         self.convnet = get_convnet(args)
@@ -47,10 +45,10 @@ class BaseNet(nn.Module):
 
         return out
 
-    def update_fc(self, nb_classes):
+    def update_fc(self):
         pass
 
-    def generate_fc(self, in_dim, out_dim):
+    def generate_fc(self):
         pass
 
     def copy(self):
@@ -90,10 +88,9 @@ class MultiBranchCosineIncrementalNet(BaseNet):
     def __init__(self, args):
         super().__init__(args)
         
-        # no need the convnet.
-        
+        # No need the convnet.
         print('Clear the convnet in MultiBranchCosineIncrementalNet, since we are using self.convnets with dual branches')
-        self.convnet=torch.nn.Identity()
+        self.convnet = torch.nn.Identity()
         for param in self.convnet.parameters():
             param.requires_grad = False
 
@@ -123,7 +120,6 @@ class MultiBranchCosineIncrementalNet(BaseNet):
     def generate_fc(self, in_dim, out_dim):
         fc = CosineLinear(in_dim, out_dim)
         return fc
-    
 
     def forward(self, x):
         if self.modeltype=='cnn':
@@ -141,7 +137,6 @@ class MultiBranchCosineIncrementalNet(BaseNet):
             out.update({"features": features})
             return out
 
-    
     def construct_dual_branch_network(self, tuned_model):
         self.convnets.append(get_convnet(self.args)) #the pretrained model itself
 
