@@ -1,0 +1,1412 @@
+2024-11-25 14:24:31,836 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-25 14:24:31,836 [trainer.py] => prefix: exp
+2024-11-25 14:24:31,836 [trainer.py] => dataset: cifar224
+2024-11-25 14:24:31,836 [trainer.py] => memory_size: 2000
+2024-11-25 14:24:31,836 [trainer.py] => memory_per_class: 20
+2024-11-25 14:24:31,836 [trainer.py] => fixed_memory: False
+2024-11-25 14:24:31,836 [trainer.py] => shuffle: True
+2024-11-25 14:24:31,836 [trainer.py] => init_cls: 5
+2024-11-25 14:24:31,836 [trainer.py] => increment: 5
+2024-11-25 14:24:31,836 [trainer.py] => model_name: aper_bn
+2024-11-25 14:24:31,836 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-25 14:24:31,836 [trainer.py] => device: [device(type='cpu')]
+2024-11-25 14:24:31,836 [trainer.py] => seed: 1993
+2024-11-25 14:24:31,836 [trainer.py] => tuned_epoch: 10
+2024-11-25 14:24:31,836 [trainer.py] => init_lr: 0.01
+2024-11-25 14:24:31,836 [trainer.py] => batch_size: 192
+Files already downloaded and verified
+Files already downloaded and verified
+2024-11-25 14:24:33,505 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+This is for the BaseNet initialization.
+After BaseNet initialization.
+2024-11-25 14:24:36,955 [trainer.py] => All params: 11176512
+2024-11-25 14:24:36,956 [trainer.py] => Trainable params: 11176512
+2024-11-25 14:24:36,957 [aper_bn.py] => Learning on 0-5
+tensor([-0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., 0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., 0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0.,
+        -0., -0., -0., 0., 0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0.,
+        0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., 0., -0., 0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0., 0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0.,
+        0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0.,
+        -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., -0., 0.,
+        -0., -0., -0., -0., -0., -0., -0., -0.]) tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0.]) tensor(0)
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [23:53<00:00, 143.31s/it]
+2024-11-25 14:48:30,055 [aper_bn.py] => Task 0, Epoch 10/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+This is for the BaseNet initialization.
+After BaseNet initialization.
+Clear the convnet in MultiBranchCosineIncrementalNet, since we are using self.convnets with dual branches
+Replacing... 0
+Replacing... 1
+Replacing... 2
+Replacing... 3
+Replacing... 4
+2024-11-25 14:53:37,857 [trainer.py] => No NME accuracy.
+2024-11-25 14:53:37,857 [trainer.py] => CNN: {'total': np.float64(91.8), '00-09': np.float64(91.8), 'old': 0, 'new': np.float64(91.8)}
+2024-11-25 14:53:37,857 [trainer.py] => CNN top1 curve: [np.float64(91.8)]
+2024-11-25 14:53:37,857 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+Average Accuracy (CNN): 91.8
+2024-11-25 14:53:37,863 [trainer.py] => Average Accuracy (CNN): 91.8
+2024-11-25 14:53:37,863 [trainer.py] => All params: 22358145
+2024-11-25 14:53:37,863 [trainer.py] => Trainable params: 22358145
+2024-11-25 14:53:37,872 [aper_bn.py] => Learning on 5-10
+Replacing... 5
+Replacing... 6
+Replacing... 7
+Replacing... 8
+Replacing... 9
+2024-11-25 14:58:31,138 [trainer.py] => No NME accuracy.
+2024-11-25 14:58:31,138 [trainer.py] => CNN: {'total': np.float64(80.5), '00-09': np.float64(80.5), 'old': np.float64(81.4), 'new': np.float64(79.6)}
+2024-11-25 14:58:31,138 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5)]
+2024-11-25 14:58:31,138 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1)]
+
+Average Accuracy (CNN): 86.15
+2024-11-25 14:58:31,138 [trainer.py] => Average Accuracy (CNN): 86.15
+2024-11-25 14:58:31,138 [trainer.py] => All params: 22363265
+2024-11-25 14:58:31,138 [trainer.py] => Trainable params: 22363265
+2024-11-25 14:58:31,138 [aper_bn.py] => Learning on 10-15
+Replacing... 10
+Replacing... 11
+Replacing... 12
+Replacing... 13
+Replacing... 14
+2024-11-25 15:04:02,789 [trainer.py] => No NME accuracy.
+2024-11-25 15:04:02,789 [trainer.py] => CNN: {'total': np.float64(73.4), '00-09': np.float64(73.8), '10-19': np.float64(72.6), 'old': np.float64(73.8), 'new': np.float64(72.6)}
+2024-11-25 15:04:02,789 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4)]
+2024-11-25 15:04:02,789 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73)]
+
+Average Accuracy (CNN): 81.9
+2024-11-25 15:04:02,789 [trainer.py] => Average Accuracy (CNN): 81.9
+2024-11-25 15:04:02,789 [trainer.py] => All params: 22368385
+2024-11-25 15:04:02,789 [trainer.py] => Trainable params: 22368385
+2024-11-25 15:04:02,833 [aper_bn.py] => Learning on 15-20
+Replacing... 15
+Replacing... 16
+Replacing... 17
+Replacing... 18
+Replacing... 19
+2024-11-25 15:10:01,647 [trainer.py] => No NME accuracy.
+2024-11-25 15:10:01,647 [trainer.py] => CNN: {'total': np.float64(66.5), '00-09': np.float64(70.2), '10-19': np.float64(62.8), 'old': np.float64(69.53), 'new': np.float64(57.4)}
+2024-11-25 15:10:01,658 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5)]
+2024-11-25 15:10:01,658 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35)]
+
+Average Accuracy (CNN): 78.05000000000001
+2024-11-25 15:10:01,658 [trainer.py] => Average Accuracy (CNN): 78.05000000000001
+2024-11-25 15:10:01,658 [trainer.py] => All params: 22373505
+2024-11-25 15:10:01,658 [trainer.py] => Trainable params: 22373505
+2024-11-25 15:10:01,698 [aper_bn.py] => Learning on 20-25
+Replacing... 20
+Replacing... 21
+Replacing... 22
+Replacing... 23
+Replacing... 24
+2024-11-25 15:16:19,476 [trainer.py] => No NME accuracy.
+2024-11-25 15:16:19,476 [trainer.py] => CNN: {'total': np.float64(64.44), '00-09': np.float64(68.0), '10-19': np.float64(58.8), '20-29': np.float64(68.6), 'old': np.float64(63.4), 'new': np.float64(68.6)}
+2024-11-25 15:16:19,476 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44)]
+2024-11-25 15:16:19,476 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96)]
+
+Average Accuracy (CNN): 75.328
+2024-11-25 15:16:19,476 [trainer.py] => Average Accuracy (CNN): 75.328
+2024-11-25 15:16:19,476 [trainer.py] => All params: 22378625
+2024-11-25 15:16:19,476 [trainer.py] => Trainable params: 22378625
+2024-11-25 15:16:19,476 [aper_bn.py] => Learning on 25-30
+Replacing... 25
+Replacing... 26
+Replacing... 27
+Replacing... 28
+Replacing... 29
+2024-11-25 15:23:44,499 [trainer.py] => No NME accuracy.
+2024-11-25 15:23:44,499 [trainer.py] => CNN: {'total': np.float64(63.3), '00-09': np.float64(66.5), '10-19': np.float64(57.0), '20-29': np.float64(66.4), 'old': np.float64(62.68), 'new': np.float64(66.4)}
+2024-11-25 15:23:44,499 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3)]
+2024-11-25 15:23:44,499 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4)]
+
+Average Accuracy (CNN): 73.32333333333334
+2024-11-25 15:23:44,499 [trainer.py] => Average Accuracy (CNN): 73.32333333333334
+2024-11-25 15:23:44,502 [trainer.py] => All params: 22383745
+2024-11-25 15:23:44,502 [trainer.py] => Trainable params: 22383745
+2024-11-25 15:23:44,502 [aper_bn.py] => Learning on 30-35
+Replacing... 30
+Replacing... 31
+Replacing... 32
+Replacing... 33
+Replacing... 34
+2024-11-25 15:31:00,555 [trainer.py] => No NME accuracy.
+2024-11-25 15:31:00,555 [trainer.py] => CNN: {'total': np.float64(60.06), '00-09': np.float64(64.7), '10-19': np.float64(53.9), '20-29': np.float64(64.3), '30-39': np.float64(54.6), 'old': np.float64(60.97), 'new': np.float64(54.6)}
+2024-11-25 15:31:00,555 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06)]
+2024-11-25 15:31:00,555 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8)]
+
+Average Accuracy (CNN): 71.42857142857143
+2024-11-25 15:31:00,555 [trainer.py] => Average Accuracy (CNN): 71.42857142857143
+2024-11-25 15:31:00,555 [trainer.py] => All params: 22388865
+2024-11-25 15:31:00,555 [trainer.py] => Trainable params: 22388865
+2024-11-25 15:31:00,555 [aper_bn.py] => Learning on 35-40
+Replacing... 35
+Replacing... 36
+Replacing... 37
+Replacing... 38
+Replacing... 39
+2024-11-25 15:39:06,247 [trainer.py] => No NME accuracy.
+2024-11-25 15:39:06,247 [trainer.py] => CNN: {'total': np.float64(58.0), '00-09': np.float64(62.3), '10-19': np.float64(52.4), '20-29': np.float64(62.9), '30-39': np.float64(54.4), 'old': np.float64(58.29), 'new': np.float64(56.0)}
+2024-11-25 15:39:06,247 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0)]
+2024-11-25 15:39:06,247 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5)]
+
+Average Accuracy (CNN): 69.75
+2024-11-25 15:39:06,247 [trainer.py] => Average Accuracy (CNN): 69.75
+2024-11-25 15:39:06,247 [trainer.py] => All params: 22393985
+2024-11-25 15:39:06,247 [trainer.py] => Trainable params: 22393985
+2024-11-25 15:39:06,247 [aper_bn.py] => Learning on 40-45
+Replacing... 40
+Replacing... 41
+Replacing... 42
+Replacing... 43
+Replacing... 44
+2024-11-25 15:47:38,253 [trainer.py] => No NME accuracy.
+2024-11-25 15:47:38,253 [trainer.py] => CNN: {'total': np.float64(56.27), '00-09': np.float64(59.4), '10-19': np.float64(50.4), '20-29': np.float64(61.3), '30-39': np.float64(53.3), '40-49': np.float64(57.6), 'old': np.float64(56.1), 'new': np.float64(57.6)}
+2024-11-25 15:47:38,253 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27)]
+2024-11-25 15:47:38,253 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16)]
+
+Average Accuracy (CNN): 68.25222222222222
+2024-11-25 15:47:38,253 [trainer.py] => Average Accuracy (CNN): 68.25222222222222
+2024-11-25 15:47:38,253 [trainer.py] => All params: 22399105
+2024-11-25 15:47:38,253 [trainer.py] => Trainable params: 22399105
+2024-11-25 15:47:38,253 [aper_bn.py] => Learning on 45-50
+Replacing... 45
+Replacing... 46
+Replacing... 47
+Replacing... 48
+Replacing... 49
+2024-11-25 15:56:34,152 [trainer.py] => No NME accuracy.
+2024-11-25 15:56:34,153 [trainer.py] => CNN: {'total': np.float64(55.66), '00-09': np.float64(57.7), '10-19': np.float64(49.0), '20-29': np.float64(59.7), '30-39': np.float64(49.0), '40-49': np.float64(62.9), 'old': np.float64(54.2), 'new': np.float64(68.8)}
+2024-11-25 15:56:34,153 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66)]
+2024-11-25 15:56:34,153 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78)]
+
+Average Accuracy (CNN): 66.993
+2024-11-25 15:56:34,153 [trainer.py] => Average Accuracy (CNN): 66.993
+2024-11-25 15:56:34,153 [trainer.py] => All params: 22404225
+2024-11-25 15:56:34,153 [trainer.py] => Trainable params: 22404225
+2024-11-25 15:56:34,212 [aper_bn.py] => Learning on 50-55
+Replacing... 50
+Replacing... 51
+Replacing... 52
+Replacing... 53
+Replacing... 54
+2024-11-25 16:06:27,937 [trainer.py] => No NME accuracy.
+2024-11-25 16:06:27,937 [trainer.py] => CNN: {'total': np.float64(54.6), '00-09': np.float64(56.0), '10-19': np.float64(48.4), '20-29': np.float64(58.6), '30-39': np.float64(47.7), '40-49': np.float64(60.1), '50-59': np.float64(59.0), 'old': np.float64(54.16), 'new': np.float64(59.0)}
+2024-11-25 16:06:27,937 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6)]
+2024-11-25 16:06:27,937 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16)]
+
+Average Accuracy (CNN): 65.86636363636363
+2024-11-25 16:06:27,937 [trainer.py] => Average Accuracy (CNN): 65.86636363636363
+2024-11-25 16:06:27,952 [trainer.py] => All params: 22409345
+2024-11-25 16:06:27,952 [trainer.py] => Trainable params: 22409345
+2024-11-25 16:06:27,952 [aper_bn.py] => Learning on 55-60
+Replacing... 55
+Replacing... 56
+Replacing... 57
+Replacing... 58
+Replacing... 59
+2024-11-25 16:16:32,158 [trainer.py] => No NME accuracy.
+2024-11-25 16:16:32,158 [trainer.py] => CNN: {'total': np.float64(53.27), '00-09': np.float64(54.4), '10-19': np.float64(46.1), '20-29': np.float64(57.6), '30-39': np.float64(47.4), '40-49': np.float64(58.8), '50-59': np.float64(55.3), 'old': np.float64(53.38), 'new': np.float64(52.0)}
+2024-11-25 16:16:32,158 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27)]
+2024-11-25 16:16:32,164 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43)]
+
+Average Accuracy (CNN): 64.81666666666666
+2024-11-25 16:16:32,164 [trainer.py] => Average Accuracy (CNN): 64.81666666666666
+2024-11-25 16:16:32,164 [trainer.py] => All params: 22414465
+2024-11-25 16:16:32,164 [trainer.py] => Trainable params: 22414465
+2024-11-25 16:16:32,164 [aper_bn.py] => Learning on 60-65
+Replacing... 60
+Replacing... 61
+Replacing... 62
+Replacing... 63
+Replacing... 64
+2024-11-25 16:26:42,382 [trainer.py] => No NME accuracy.
+2024-11-25 16:26:42,382 [trainer.py] => CNN: {'total': np.float64(52.4), '00-09': np.float64(53.1), '10-19': np.float64(44.6), '20-29': np.float64(57.2), '30-39': np.float64(45.9), '40-49': np.float64(57.3), '50-59': np.float64(52.6), '60-69': np.float64(59.8), 'old': np.float64(51.78), 'new': np.float64(59.8)}
+2024-11-25 16:26:42,382 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4)]
+2024-11-25 16:26:42,382 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45)]
+
+Average Accuracy (CNN): 63.86153846153846
+2024-11-25 16:26:42,382 [trainer.py] => Average Accuracy (CNN): 63.86153846153846
+2024-11-25 16:26:42,382 [trainer.py] => All params: 22419585
+2024-11-25 16:26:42,382 [trainer.py] => Trainable params: 22419585
+2024-11-25 16:26:42,382 [aper_bn.py] => Learning on 65-70
+Replacing... 65
+Replacing... 66
+Replacing... 67
+Replacing... 68
+Replacing... 69
+2024-11-25 16:38:05,825 [trainer.py] => No NME accuracy.
+2024-11-25 16:38:05,825 [trainer.py] => CNN: {'total': np.float64(52.6), '00-09': np.float64(51.5), '10-19': np.float64(43.5), '20-29': np.float64(56.0), '30-39': np.float64(45.2), '40-49': np.float64(56.5), '50-59': np.float64(52.1), '60-69': np.float64(63.4), 'old': np.float64(51.38), 'new': np.float64(68.4)}
+2024-11-25 16:38:05,825 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4), np.float64(52.6)]
+2024-11-25 16:38:05,825 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45), np.float64(81.06)]
+
+Average Accuracy (CNN): 63.05714285714286
+2024-11-25 16:38:05,825 [trainer.py] => Average Accuracy (CNN): 63.05714285714286
+2024-11-25 16:38:05,825 [trainer.py] => All params: 22424705
+2024-11-25 16:38:05,825 [trainer.py] => Trainable params: 22424705
+2024-11-25 16:38:05,825 [aper_bn.py] => Learning on 70-75
+Replacing... 70
+Replacing... 71
+Replacing... 72
+Replacing... 73
+Replacing... 74
+2024-11-25 16:49:29,821 [trainer.py] => No NME accuracy.
+2024-11-25 16:49:29,821 [trainer.py] => CNN: {'total': np.float64(51.79), '00-09': np.float64(50.2), '10-19': np.float64(42.0), '20-29': np.float64(55.7), '30-39': np.float64(44.2), '40-49': np.float64(56.2), '50-59': np.float64(50.5), '60-69': np.float64(62.3), '70-79': np.float64(54.6), 'old': np.float64(51.59), 'new': np.float64(54.6)}
+2024-11-25 16:49:29,821 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4), np.float64(52.6), np.float64(51.79)]
+2024-11-25 16:49:29,821 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45), np.float64(81.06), np.float64(80.0)]
+
+Average Accuracy (CNN): 62.306
+2024-11-25 16:49:29,821 [trainer.py] => Average Accuracy (CNN): 62.306
+2024-11-25 16:49:29,821 [trainer.py] => All params: 22429825
+2024-11-25 16:49:29,826 [trainer.py] => Trainable params: 22429825
+2024-11-25 16:49:29,828 [aper_bn.py] => Learning on 75-80
+Replacing... 75
+Replacing... 76
+Replacing... 77
+Replacing... 78
+Replacing... 79
+2024-11-26 09:16:01,259 [trainer.py] => No NME accuracy.
+2024-11-26 09:16:01,259 [trainer.py] => CNN: {'total': np.float64(50.38), '00-09': np.float64(48.9), '10-19': np.float64(41.8), '20-29': np.float64(54.8), '30-39': np.float64(43.7), '40-49': np.float64(55.2), '50-59': np.float64(46.8), '60-69': np.float64(61.6), '70-79': np.float64(50.2), 'old': np.float64(50.59), 'new': np.float64(47.2)}
+2024-11-26 09:16:01,259 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4), np.float64(52.6), np.float64(51.79), np.float64(50.38)]
+2024-11-26 09:16:01,259 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45), np.float64(81.06), np.float64(80.0), np.float64(79.06)]
+
+Average Accuracy (CNN): 61.560624999999995
+2024-11-26 09:16:01,259 [trainer.py] => Average Accuracy (CNN): 61.560624999999995
+2024-11-26 09:16:01,259 [trainer.py] => All params: 22434945
+2024-11-26 09:16:01,259 [trainer.py] => Trainable params: 22434945
+2024-11-26 09:16:01,275 [aper_bn.py] => Learning on 80-85
+Replacing... 80
+Replacing... 81
+Replacing... 82
+Replacing... 83
+Replacing... 84
+2024-11-26 09:28:50,511 [trainer.py] => No NME accuracy.
+2024-11-26 09:28:50,511 [trainer.py] => CNN: {'total': np.float64(49.88), '00-09': np.float64(48.6), '10-19': np.float64(40.8), '20-29': np.float64(53.9), '30-39': np.float64(43.3), '40-49': np.float64(53.6), '50-59': np.float64(46.2), '60-69': np.float64(60.5), '70-79': np.float64(49.9), '80-89': np.float64(54.4), 'old': np.float64(49.6), 'new': np.float64(54.4)}
+2024-11-26 09:28:50,527 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4), np.float64(52.6), np.float64(51.79), np.float64(50.38), np.float64(49.88)]
+2024-11-26 09:28:50,527 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45), np.float64(81.06), np.float64(80.0), np.float64(79.06), np.float64(78.71)]
+
+Average Accuracy (CNN): 60.8735294117647
+2024-11-26 09:28:50,527 [trainer.py] => Average Accuracy (CNN): 60.8735294117647
+2024-11-26 09:28:50,527 [trainer.py] => All params: 22440065
+2024-11-26 09:28:50,527 [trainer.py] => Trainable params: 22440065
+2024-11-26 09:28:50,534 [aper_bn.py] => Learning on 85-90
+Replacing... 85
+Replacing... 86
+Replacing... 87
+Replacing... 88
+Replacing... 89
+2024-11-26 09:41:19,364 [trainer.py] => No NME accuracy.
+2024-11-26 09:41:19,366 [trainer.py] => CNN: {'total': np.float64(48.57), '00-09': np.float64(47.6), '10-19': np.float64(39.8), '20-29': np.float64(53.0), '30-39': np.float64(43.2), '40-49': np.float64(53.3), '50-59': np.float64(45.7), '60-69': np.float64(60.4), '70-79': np.float64(48.4), '80-89': np.float64(45.7), 'old': np.float64(49.25), 'new': np.float64(37.0)}
+2024-11-26 09:41:19,366 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4), np.float64(52.6), np.float64(51.79), np.float64(50.38), np.float64(49.88), np.float64(48.57)]
+2024-11-26 09:41:19,368 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45), np.float64(81.06), np.float64(80.0), np.float64(79.06), np.float64(78.71), np.float64(77.36)]
+
+Average Accuracy (CNN): 60.18999999999999
+2024-11-26 09:41:19,368 [trainer.py] => Average Accuracy (CNN): 60.18999999999999
+2024-11-26 09:41:19,368 [trainer.py] => All params: 22445185
+2024-11-26 09:41:19,368 [trainer.py] => Trainable params: 22445185
+2024-11-26 09:41:19,372 [aper_bn.py] => Learning on 90-95
+Replacing... 90
+Replacing... 91
+Replacing... 92
+Replacing... 93
+Replacing... 94
+2024-11-26 09:54:10,108 [trainer.py] => No NME accuracy.
+2024-11-26 09:54:10,108 [trainer.py] => CNN: {'total': np.float64(48.0), '00-09': np.float64(46.5), '10-19': np.float64(39.3), '20-29': np.float64(52.5), '30-39': np.float64(43.0), '40-49': np.float64(52.5), '50-59': np.float64(44.9), '60-69': np.float64(60.0), '70-79': np.float64(47.0), '80-89': np.float64(45.5), '90-99': np.float64(49.6), 'old': np.float64(47.91), 'new': np.float64(49.6)}
+2024-11-26 09:54:10,108 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4), np.float64(52.6), np.float64(51.79), np.float64(50.38), np.float64(49.88), np.float64(48.57), np.float64(48.0)]
+2024-11-26 09:54:10,108 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45), np.float64(81.06), np.float64(80.0), np.float64(79.06), np.float64(78.71), np.float64(77.36), np.float64(76.78)]
+
+Average Accuracy (CNN): 59.54842105263157
+2024-11-26 09:54:10,108 [trainer.py] => Average Accuracy (CNN): 59.54842105263157
+2024-11-26 09:54:10,108 [trainer.py] => All params: 22450305
+2024-11-26 09:54:10,108 [trainer.py] => Trainable params: 22450305
+2024-11-26 09:54:10,108 [aper_bn.py] => Learning on 95-100
+Replacing... 95
+Replacing... 96
+Replacing... 97
+Replacing... 98
+Replacing... 99
+2024-11-26 10:07:45,058 [trainer.py] => No NME accuracy.
+2024-11-26 10:07:45,060 [trainer.py] => CNN: {'total': np.float64(47.22), '00-09': np.float64(45.4), '10-19': np.float64(38.8), '20-29': np.float64(51.8), '30-39': np.float64(42.6), '40-49': np.float64(51.5), '50-59': np.float64(43.4), '60-69': np.float64(59.7), '70-79': np.float64(46.7), '80-89': np.float64(45.0), '90-99': np.float64(47.3), 'old': np.float64(47.29), 'new': np.float64(45.8)}
+2024-11-26 10:07:45,060 [trainer.py] => CNN top1 curve: [np.float64(91.8), np.float64(80.5), np.float64(73.4), np.float64(66.5), np.float64(64.44), np.float64(63.3), np.float64(60.06), np.float64(58.0), np.float64(56.27), np.float64(55.66), np.float64(54.6), np.float64(53.27), np.float64(52.4), np.float64(52.6), np.float64(51.79), np.float64(50.38), np.float64(49.88), np.float64(48.57), np.float64(48.0), np.float64(47.22)]  
+2024-11-26 10:07:45,060 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.1), np.float64(95.73), np.float64(92.35), np.float64(90.96), np.float64(89.4), np.float64(87.8), np.float64(86.5), np.float64(85.16), np.float64(84.78), np.float64(84.16), np.float64(82.43), np.float64(81.45), np.float64(81.06), np.float64(80.0), np.float64(79.06), np.float64(78.71), np.float64(77.36), np.float64(76.78), np.float64(76.12)]
+
+Average Accuracy (CNN): 58.931999999999995
+2024-11-26 10:07:45,060 [trainer.py] => Average Accuracy (CNN): 58.9319999999999952024-11-28 09:23:26,586 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 09:23:26,587 [trainer.py] => prefix: exp
+2024-11-28 09:23:26,587 [trainer.py] => dataset: cifar224
+2024-11-28 09:23:26,587 [trainer.py] => memory_size: 2000
+2024-11-28 09:23:26,588 [trainer.py] => memory_per_class: 20
+2024-11-28 09:23:26,588 [trainer.py] => fixed_memory: False
+2024-11-28 09:23:26,588 [trainer.py] => shuffle: True
+2024-11-28 09:23:26,589 [trainer.py] => init_cls: 5
+2024-11-28 09:23:26,589 [trainer.py] => increment: 5
+2024-11-28 09:23:26,589 [trainer.py] => model_name: aper_bn
+2024-11-28 09:23:26,589 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 09:23:26,590 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 09:23:26,590 [trainer.py] => seed: 1993
+2024-11-28 09:23:26,590 [trainer.py] => tuned_epoch: 10
+2024-11-28 09:23:26,590 [trainer.py] => init_lr: 0.01
+2024-11-28 09:23:26,591 [trainer.py] => batch_size: 192
+2024-11-28 09:23:28,106 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 09:23:33,575 [trainer.py] => All params: 11176512
+2024-11-28 09:23:33,576 [trainer.py] => Trainable params: 11176512
+2024-11-28 09:23:33,577 [aper_bn.py] => Learning on 0-5
+2024-11-28 09:27:34,576 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 09:27:34,576 [trainer.py] => prefix: exp
+2024-11-28 09:27:34,577 [trainer.py] => dataset: cifar224
+2024-11-28 09:27:34,577 [trainer.py] => memory_size: 2000
+2024-11-28 09:27:34,578 [trainer.py] => memory_per_class: 20
+2024-11-28 09:27:34,578 [trainer.py] => fixed_memory: False
+2024-11-28 09:27:34,578 [trainer.py] => shuffle: True
+2024-11-28 09:27:34,579 [trainer.py] => init_cls: 5
+2024-11-28 09:27:34,579 [trainer.py] => increment: 5
+2024-11-28 09:27:34,579 [trainer.py] => model_name: aper_bn
+2024-11-28 09:27:34,580 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 09:27:34,580 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 09:27:34,580 [trainer.py] => seed: 1993
+2024-11-28 09:27:34,581 [trainer.py] => tuned_epoch: 10
+2024-11-28 09:27:34,581 [trainer.py] => init_lr: 0.01
+2024-11-28 09:27:34,581 [trainer.py] => batch_size: 192
+2024-11-28 09:27:35,920 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 09:27:38,839 [trainer.py] => All params: 11176512
+2024-11-28 09:27:38,839 [trainer.py] => Trainable params: 11176512
+2024-11-28 09:27:38,840 [aper_bn.py] => Learning on 0-5
+2024-11-28 09:42:55,461 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 09:42:55,462 [trainer.py] => prefix: exp
+2024-11-28 09:42:55,462 [trainer.py] => dataset: cifar224
+2024-11-28 09:42:55,462 [trainer.py] => memory_size: 2000
+2024-11-28 09:42:55,463 [trainer.py] => memory_per_class: 20
+2024-11-28 09:42:55,463 [trainer.py] => fixed_memory: False
+2024-11-28 09:42:55,463 [trainer.py] => shuffle: True
+2024-11-28 09:42:55,463 [trainer.py] => init_cls: 5
+2024-11-28 09:42:55,463 [trainer.py] => increment: 5
+2024-11-28 09:42:55,464 [trainer.py] => model_name: aper_bn
+2024-11-28 09:42:55,464 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 09:42:55,464 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 09:42:55,464 [trainer.py] => seed: 1993
+2024-11-28 09:42:55,465 [trainer.py] => tuned_epoch: 1
+2024-11-28 09:42:55,465 [trainer.py] => init_lr: 0.01
+2024-11-28 09:42:55,465 [trainer.py] => batch_size: 192
+2024-11-28 09:42:56,814 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 09:43:01,426 [trainer.py] => All params: 11176512
+2024-11-28 09:43:01,426 [trainer.py] => Trainable params: 11176512
+2024-11-28 09:43:01,427 [aper_bn.py] => Learning on 0-5
+2024-11-28 09:45:03,723 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-28 09:49:17,171 [trainer.py] => No NME accuracy.
+2024-11-28 09:49:17,171 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-11-28 09:49:17,172 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-11-28 09:49:17,172 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-11-28 09:49:17,172 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-11-28 09:49:17,173 [trainer.py] => All params: 22358145
+2024-11-28 09:49:17,174 [trainer.py] => Trainable params: 22358145
+2024-11-28 09:49:17,177 [aper_bn.py] => Learning on 5-10
+2024-11-28 09:54:20,113 [trainer.py] => No NME accuracy.
+2024-11-28 09:54:20,113 [trainer.py] => CNN: {'total': np.float64(76.5), '00-09': np.float64(76.5), 'old': np.float64(79.0), 'new': np.float64(74.0)}
+2024-11-28 09:54:20,113 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5)]
+2024-11-28 09:54:20,114 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4)]
+
+2024-11-28 09:54:20,115 [trainer.py] => Average Accuracy (CNN): 83.95
+2024-11-28 09:54:20,115 [trainer.py] => All params: 22363265
+2024-11-28 09:54:20,116 [trainer.py] => Trainable params: 22363265
+2024-11-28 09:54:20,118 [aper_bn.py] => Learning on 10-15
+2024-11-28 10:00:15,766 [trainer.py] => No NME accuracy.
+2024-11-28 10:00:15,766 [trainer.py] => CNN: {'total': np.float64(67.4), '00-09': np.float64(68.3), '10-19': np.float64(65.6), 'old': np.float64(68.3), 'new': np.float64(65.6)}
+2024-11-28 10:00:15,767 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4)]
+2024-11-28 10:00:15,767 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93)]
+
+2024-11-28 10:00:15,768 [trainer.py] => Average Accuracy (CNN): 78.43333333333334
+2024-11-28 10:00:15,769 [trainer.py] => All params: 22368385
+2024-11-28 10:00:15,769 [trainer.py] => Trainable params: 22368385
+2024-11-28 10:00:15,815 [aper_bn.py] => Learning on 15-20
+2024-11-28 10:06:52,275 [trainer.py] => No NME accuracy.
+2024-11-28 10:06:52,276 [trainer.py] => CNN: {'total': np.float64(59.65), '00-09': np.float64(64.5), '10-19': np.float64(54.8), 'old': np.float64(62.53), 'new': np.float64(51.0)}
+2024-11-28 10:06:52,276 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65)]
+2024-11-28 10:06:52,277 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5)]
+
+2024-11-28 10:06:52,277 [trainer.py] => Average Accuracy (CNN): 73.7375
+2024-11-28 10:06:52,278 [trainer.py] => All params: 22373505
+2024-11-28 10:06:52,279 [trainer.py] => Trainable params: 22373505
+2024-11-28 10:06:52,329 [aper_bn.py] => Learning on 20-25
+2024-11-28 10:13:43,343 [trainer.py] => No NME accuracy.
+2024-11-28 10:13:43,343 [trainer.py] => CNN: {'total': np.float64(57.2), '00-09': np.float64(62.6), '10-19': np.float64(50.4), '20-29': np.float64(60.0), 'old': np.float64(56.5), 'new': np.float64(60.0)}
+2024-11-28 10:13:43,344 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2)]
+2024-11-28 10:13:43,344 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56)]
+
+2024-11-28 10:13:43,345 [trainer.py] => Average Accuracy (CNN): 70.42999999999999
+2024-11-28 10:13:43,346 [trainer.py] => All params: 22378625
+2024-11-28 10:13:43,346 [trainer.py] => Trainable params: 22378625
+2024-11-28 10:13:43,348 [aper_bn.py] => Learning on 25-30
+2024-11-28 10:20:42,198 [trainer.py] => No NME accuracy.
+2024-11-28 10:20:42,199 [trainer.py] => CNN: {'total': np.float64(56.23), '00-09': np.float64(61.0), '10-19': np.float64(48.4), '20-29': np.float64(59.3), 'old': np.float64(55.52), 'new': np.float64(59.8)}
+2024-11-28 10:20:42,199 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23)]
+2024-11-28 10:20:42,200 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37)]
+
+2024-11-28 10:20:42,200 [trainer.py] => Average Accuracy (CNN): 68.06333333333333
+2024-11-28 10:20:42,201 [trainer.py] => All params: 22383745
+2024-11-28 10:20:42,202 [trainer.py] => Trainable params: 22383745
+2024-11-28 10:20:42,204 [aper_bn.py] => Learning on 30-35
+2024-11-28 10:28:28,162 [trainer.py] => No NME accuracy.
+2024-11-28 10:28:28,163 [trainer.py] => CNN: {'total': np.float64(53.09), '00-09': np.float64(59.1), '10-19': np.float64(45.8), '20-29': np.float64(57.0), '30-39': np.float64(47.8), 'old': np.float64(53.97), 'new': np.float64(47.8)}
+2024-11-28 10:28:28,163 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09)]
+2024-11-28 10:28:28,164 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34)]
+
+2024-11-28 10:28:28,164 [trainer.py] => Average Accuracy (CNN): 65.92428571428572
+2024-11-28 10:28:28,165 [trainer.py] => All params: 22388865
+2024-11-28 10:28:28,166 [trainer.py] => Trainable params: 22388865
+2024-11-28 10:28:28,167 [aper_bn.py] => Learning on 35-40
+2024-11-28 10:36:36,667 [trainer.py] => No NME accuracy.
+2024-11-28 10:36:36,668 [trainer.py] => CNN: {'total': np.float64(51.02), '00-09': np.float64(57.2), '10-19': np.float64(44.2), '20-29': np.float64(55.3), '30-39': np.float64(47.4), 'old': np.float64(51.4), 'new': np.float64(48.4)}
+2024-11-28 10:36:36,668 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02)]
+2024-11-28 10:36:36,669 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85)]
+
+2024-11-28 10:36:36,669 [trainer.py] => Average Accuracy (CNN): 64.06125
+2024-11-28 10:36:36,670 [trainer.py] => All params: 22393985
+2024-11-28 10:36:36,671 [trainer.py] => Trainable params: 22393985
+2024-11-28 10:36:36,674 [aper_bn.py] => Learning on 40-45
+2024-11-28 10:44:58,361 [trainer.py] => No NME accuracy.
+2024-11-28 10:44:58,362 [trainer.py] => CNN: {'total': np.float64(49.87), '00-09': np.float64(55.0), '10-19': np.float64(42.3), '20-29': np.float64(54.2), '30-39': np.float64(47.0), '40-49': np.float64(51.8), 'old': np.float64(49.62), 'new': np.float64(51.8)}
+2024-11-28 10:44:58,362 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87)]
+2024-11-28 10:44:58,363 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96)]
+
+2024-11-28 10:44:58,363 [trainer.py] => Average Accuracy (CNN): 62.48444444444445
+2024-11-28 10:44:58,364 [trainer.py] => All params: 22399105
+2024-11-28 10:44:58,365 [trainer.py] => Trainable params: 22399105
+2024-11-28 10:44:58,366 [aper_bn.py] => Learning on 45-50
+2024-11-28 10:53:47,253 [trainer.py] => No NME accuracy.
+2024-11-28 10:53:47,254 [trainer.py] => CNN: {'total': np.float64(49.58), '00-09': np.float64(53.7), '10-19': np.float64(40.3), '20-29': np.float64(52.4), '30-39': np.float64(44.1), '40-49': np.float64(57.4), 'old': np.float64(47.93), 'new': np.float64(64.4)}
+2024-11-28 10:53:47,254 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87), np.float64(49.58)]
+2024-11-28 10:53:47,255 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96), np.float64(79.52)]
+
+2024-11-28 10:53:47,255 [trainer.py] => Average Accuracy (CNN): 61.194
+2024-11-28 10:53:47,256 [trainer.py] => All params: 22404225
+2024-11-28 10:53:47,257 [trainer.py] => Trainable params: 22404225
+2024-11-28 10:53:47,324 [aper_bn.py] => Learning on 50-55
+2024-11-28 11:03:32,510 [trainer.py] => No NME accuracy.
+2024-11-28 11:03:32,511 [trainer.py] => CNN: {'total': np.float64(48.13), '00-09': np.float64(51.2), '10-19': np.float64(39.5), '20-29': np.float64(51.1), '30-39': np.float64(42.5), '40-49': np.float64(53.7), '50-59': np.float64(53.4), 'old': np.float64(47.6), 'new': np.float64(53.4)}
+2024-11-28 11:03:32,511 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87), np.float64(49.58), np.float64(48.13)]
+2024-11-28 11:03:32,512 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96), np.float64(79.52), np.float64(78.4)]
+
+2024-11-28 11:03:32,512 [trainer.py] => Average Accuracy (CNN): 60.00636363636364
+2024-11-28 11:03:32,513 [trainer.py] => All params: 22409345
+2024-11-28 11:03:32,514 [trainer.py] => Trainable params: 22409345
+2024-11-28 11:03:32,517 [aper_bn.py] => Learning on 55-60
+2024-11-28 11:13:37,822 [trainer.py] => No NME accuracy.
+2024-11-28 11:13:37,823 [trainer.py] => CNN: {'total': np.float64(46.27), '00-09': np.float64(49.5), '10-19': np.float64(38.2), '20-29': np.float64(49.9), '30-39': np.float64(41.7), '40-49': np.float64(52.4), '50-59': np.float64(45.9), 'old': np.float64(46.96), 'new': np.float64(38.6)}
+2024-11-28 11:13:37,823 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87), np.float64(49.58), np.float64(48.13), np.float64(46.27)]
+2024-11-28 11:13:37,823 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96), np.float64(79.52), np.float64(78.4), np.float64(76.27)]
+
+2024-11-28 11:13:37,824 [trainer.py] => Average Accuracy (CNN): 58.86166666666667
+2024-11-28 11:13:37,825 [trainer.py] => All params: 22414465
+2024-11-28 11:13:37,826 [trainer.py] => Trainable params: 22414465
+2024-11-28 11:13:37,828 [aper_bn.py] => Learning on 60-65
+2024-11-28 14:19:40,447 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 14:19:40,447 [trainer.py] => prefix: exp
+2024-11-28 14:19:40,448 [trainer.py] => dataset: cifar224
+2024-11-28 14:19:40,448 [trainer.py] => memory_size: 2000
+2024-11-28 14:19:40,448 [trainer.py] => memory_per_class: 20
+2024-11-28 14:19:40,449 [trainer.py] => fixed_memory: False
+2024-11-28 14:19:40,449 [trainer.py] => shuffle: True
+2024-11-28 14:19:40,449 [trainer.py] => init_cls: 5
+2024-11-28 14:19:40,450 [trainer.py] => increment: 5
+2024-11-28 14:19:40,450 [trainer.py] => model_name: aper_bn
+2024-11-28 14:19:40,450 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 14:19:40,451 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 14:19:40,451 [trainer.py] => seed: 1993
+2024-11-28 14:19:40,451 [trainer.py] => tuned_epoch: 1
+2024-11-28 14:19:40,451 [trainer.py] => init_lr: 0.01
+2024-11-28 14:19:40,451 [trainer.py] => batch_size: 192
+2024-11-28 14:19:41,888 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 14:19:47,120 [trainer.py] => All params: 11176512
+2024-11-28 14:19:47,120 [trainer.py] => Trainable params: 11176512
+2024-11-28 14:19:47,122 [aper_bn.py] => Learning on 0-5
+2024-11-28 14:21:52,549 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-28 14:26:23,243 [trainer.py] => No NME accuracy.
+2024-11-28 14:26:23,243 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-11-28 14:26:23,244 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-11-28 14:26:23,244 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-11-28 14:26:23,245 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-11-28 14:26:23,245 [trainer.py] => All params: 22358145
+2024-11-28 14:26:23,246 [trainer.py] => Trainable params: 22358145
+2024-11-28 14:26:23,248 [aper_bn.py] => Learning on 5-10
+2024-11-28 14:27:39,165 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 14:27:39,165 [trainer.py] => prefix: exp
+2024-11-28 14:27:39,165 [trainer.py] => dataset: cifar224
+2024-11-28 14:27:39,165 [trainer.py] => memory_size: 2000
+2024-11-28 14:27:39,166 [trainer.py] => memory_per_class: 20
+2024-11-28 14:27:39,166 [trainer.py] => fixed_memory: False
+2024-11-28 14:27:39,166 [trainer.py] => shuffle: True
+2024-11-28 14:27:39,166 [trainer.py] => init_cls: 5
+2024-11-28 14:27:39,166 [trainer.py] => increment: 5
+2024-11-28 14:27:39,166 [trainer.py] => model_name: aper_bn
+2024-11-28 14:27:39,166 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 14:27:39,167 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 14:27:39,167 [trainer.py] => seed: 1993
+2024-11-28 14:27:39,167 [trainer.py] => tuned_epoch: 1
+2024-11-28 14:27:39,167 [trainer.py] => init_lr: 0.01
+2024-11-28 14:27:39,167 [trainer.py] => batch_size: 192
+2024-11-28 14:27:40,574 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 14:27:43,277 [trainer.py] => All params: 11176512
+2024-11-28 14:27:43,278 [trainer.py] => Trainable params: 11176512
+2024-11-28 14:27:43,279 [aper_bn.py] => Learning on 0-5
+2024-11-28 14:29:51,280 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-28 14:34:14,653 [trainer.py] => No NME accuracy.
+2024-11-28 14:34:14,653 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-11-28 14:34:14,654 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-11-28 14:34:14,654 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-11-28 14:34:14,655 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-11-28 14:34:14,655 [trainer.py] => All params: 22358145
+2024-11-28 14:34:14,656 [trainer.py] => Trainable params: 22358145
+2024-11-28 14:34:14,657 [aper_bn.py] => Learning on 5-10
+2024-11-28 14:39:06,271 [trainer.py] => No NME accuracy.
+2024-11-28 14:39:06,271 [trainer.py] => CNN: {'total': np.float64(76.5), '00-09': np.float64(76.5), 'old': np.float64(79.0), 'new': np.float64(74.0)}
+2024-11-28 14:39:06,272 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5)]
+2024-11-28 14:39:06,272 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4)]
+
+2024-11-28 14:39:06,272 [trainer.py] => Average Accuracy (CNN): 83.95
+2024-11-28 14:39:06,273 [trainer.py] => All params: 22363265
+2024-11-28 14:39:06,273 [trainer.py] => Trainable params: 22363265
+2024-11-28 14:39:06,275 [aper_bn.py] => Learning on 10-15
+2024-11-28 14:44:48,137 [trainer.py] => No NME accuracy.
+2024-11-28 14:44:48,138 [trainer.py] => CNN: {'total': np.float64(67.4), '00-09': np.float64(68.3), '10-19': np.float64(65.6), 'old': np.float64(68.3), 'new': np.float64(65.6)}
+2024-11-28 14:44:48,138 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4)]
+2024-11-28 14:44:48,138 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93)]
+
+2024-11-28 14:44:48,139 [trainer.py] => Average Accuracy (CNN): 78.43333333333334
+2024-11-28 14:44:48,140 [trainer.py] => All params: 22368385
+2024-11-28 14:44:48,140 [trainer.py] => Trainable params: 22368385
+2024-11-28 14:44:48,187 [aper_bn.py] => Learning on 15-20
+2024-11-28 14:50:58,434 [trainer.py] => No NME accuracy.
+2024-11-28 14:50:58,435 [trainer.py] => CNN: {'total': np.float64(59.65), '00-09': np.float64(64.5), '10-19': np.float64(54.8), 'old': np.float64(62.53), 'new': np.float64(51.0)}
+2024-11-28 14:50:58,435 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65)]
+2024-11-28 14:50:58,435 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5)]
+
+2024-11-28 14:50:58,436 [trainer.py] => Average Accuracy (CNN): 73.7375
+2024-11-28 14:50:58,436 [trainer.py] => All params: 22373505
+2024-11-28 14:50:58,437 [trainer.py] => Trainable params: 22373505
+2024-11-28 14:50:58,474 [aper_bn.py] => Learning on 20-25
+2024-11-28 14:57:37,827 [trainer.py] => No NME accuracy.
+2024-11-28 14:57:37,827 [trainer.py] => CNN: {'total': np.float64(57.2), '00-09': np.float64(62.6), '10-19': np.float64(50.4), '20-29': np.float64(60.0), 'old': np.float64(56.5), 'new': np.float64(60.0)}
+2024-11-28 14:57:37,828 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2)]
+2024-11-28 14:57:37,828 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56)]
+
+2024-11-28 14:57:37,829 [trainer.py] => Average Accuracy (CNN): 70.42999999999999
+2024-11-28 14:57:37,829 [trainer.py] => All params: 22378625
+2024-11-28 14:57:37,830 [trainer.py] => Trainable params: 22378625
+2024-11-28 14:57:37,831 [aper_bn.py] => Learning on 25-30
+2024-11-28 15:04:40,438 [trainer.py] => No NME accuracy.
+2024-11-28 15:04:40,438 [trainer.py] => CNN: {'total': np.float64(56.23), '00-09': np.float64(61.0), '10-19': np.float64(48.4), '20-29': np.float64(59.3), 'old': np.float64(55.52), 'new': np.float64(59.8)}
+2024-11-28 15:04:40,439 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23)]
+2024-11-28 15:04:40,439 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37)]
+
+2024-11-28 15:04:40,441 [trainer.py] => Average Accuracy (CNN): 68.06333333333333
+2024-11-28 15:04:40,441 [trainer.py] => All params: 22383745
+2024-11-28 15:04:40,442 [trainer.py] => Trainable params: 22383745
+2024-11-28 15:04:40,443 [aper_bn.py] => Learning on 30-35
+2024-11-28 15:12:15,497 [trainer.py] => No NME accuracy.
+2024-11-28 15:12:15,498 [trainer.py] => CNN: {'total': np.float64(53.09), '00-09': np.float64(59.1), '10-19': np.float64(45.8), '20-29': np.float64(57.0), '30-39': np.float64(47.8), 'old': np.float64(53.97), 'new': np.float64(47.8)}
+2024-11-28 15:12:15,498 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09)]
+2024-11-28 15:12:15,498 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34)]
+
+2024-11-28 15:12:15,499 [trainer.py] => Average Accuracy (CNN): 65.92428571428572
+2024-11-28 15:12:15,501 [trainer.py] => All params: 22388865
+2024-11-28 15:12:15,501 [trainer.py] => Trainable params: 22388865
+2024-11-28 15:12:15,503 [aper_bn.py] => Learning on 35-40
+2024-11-28 15:12:51,575 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 15:12:51,576 [trainer.py] => prefix: exp
+2024-11-28 15:12:51,576 [trainer.py] => dataset: cifar224
+2024-11-28 15:12:51,577 [trainer.py] => memory_size: 2000
+2024-11-28 15:12:51,577 [trainer.py] => memory_per_class: 20
+2024-11-28 15:12:51,577 [trainer.py] => fixed_memory: False
+2024-11-28 15:12:51,578 [trainer.py] => shuffle: True
+2024-11-28 15:12:51,578 [trainer.py] => init_cls: 5
+2024-11-28 15:12:51,578 [trainer.py] => increment: 5
+2024-11-28 15:12:51,579 [trainer.py] => model_name: aper_bn
+2024-11-28 15:12:51,579 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 15:12:51,579 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 15:12:51,579 [trainer.py] => seed: 1993
+2024-11-28 15:12:51,580 [trainer.py] => tuned_epoch: 1
+2024-11-28 15:12:51,580 [trainer.py] => init_lr: 0.01
+2024-11-28 15:12:51,580 [trainer.py] => batch_size: 192
+2024-11-28 15:12:53,013 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 15:12:58,369 [trainer.py] => All params: 11176512
+2024-11-28 15:12:58,370 [trainer.py] => Trainable params: 11176512
+2024-11-28 15:12:58,371 [aper_bn.py] => Learning on 0-5
+2024-11-28 15:15:12,686 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-28 15:18:17,905 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 15:18:17,906 [trainer.py] => prefix: exp
+2024-11-28 15:18:17,906 [trainer.py] => dataset: cifar224
+2024-11-28 15:18:17,907 [trainer.py] => memory_size: 2000
+2024-11-28 15:18:17,907 [trainer.py] => memory_per_class: 20
+2024-11-28 15:18:17,907 [trainer.py] => fixed_memory: False
+2024-11-28 15:18:17,908 [trainer.py] => shuffle: True
+2024-11-28 15:18:17,908 [trainer.py] => init_cls: 5
+2024-11-28 15:18:17,908 [trainer.py] => increment: 5
+2024-11-28 15:18:17,908 [trainer.py] => model_name: aper_bn
+2024-11-28 15:18:17,909 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 15:18:17,909 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 15:18:17,909 [trainer.py] => seed: 1993
+2024-11-28 15:18:17,909 [trainer.py] => tuned_epoch: 1
+2024-11-28 15:18:17,909 [trainer.py] => init_lr: 0.01
+2024-11-28 15:18:17,910 [trainer.py] => batch_size: 192
+2024-11-28 15:18:19,325 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 15:18:22,030 [trainer.py] => All params: 11176512
+2024-11-28 15:18:22,031 [trainer.py] => Trainable params: 11176512
+2024-11-28 15:18:22,032 [aper_bn.py] => Learning on 0-5
+2024-11-28 15:23:26,214 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 15:23:26,214 [trainer.py] => prefix: exp
+2024-11-28 15:23:26,215 [trainer.py] => dataset: cifar224
+2024-11-28 15:23:26,215 [trainer.py] => memory_size: 2000
+2024-11-28 15:23:26,215 [trainer.py] => memory_per_class: 20
+2024-11-28 15:23:26,216 [trainer.py] => fixed_memory: False
+2024-11-28 15:23:26,216 [trainer.py] => shuffle: True
+2024-11-28 15:23:26,216 [trainer.py] => init_cls: 5
+2024-11-28 15:23:26,216 [trainer.py] => increment: 5
+2024-11-28 15:23:26,216 [trainer.py] => model_name: aper_bn
+2024-11-28 15:23:26,217 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 15:23:26,217 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 15:23:26,217 [trainer.py] => seed: 1993
+2024-11-28 15:23:26,217 [trainer.py] => tuned_epoch: 1
+2024-11-28 15:23:26,218 [trainer.py] => init_lr: 0.01
+2024-11-28 15:23:26,218 [trainer.py] => batch_size: 192
+2024-11-28 15:23:27,595 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 15:23:30,203 [trainer.py] => All params: 11176512
+2024-11-28 15:23:30,203 [trainer.py] => Trainable params: 11176512
+2024-11-28 15:23:30,205 [aper_bn.py] => Learning on 0-5
+2024-11-28 15:34:39,881 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-28 15:34:39,882 [trainer.py] => prefix: exp
+2024-11-28 15:34:39,882 [trainer.py] => dataset: cifar224
+2024-11-28 15:34:39,882 [trainer.py] => memory_size: 2000
+2024-11-28 15:34:39,882 [trainer.py] => memory_per_class: 20
+2024-11-28 15:34:39,883 [trainer.py] => fixed_memory: False
+2024-11-28 15:34:39,883 [trainer.py] => shuffle: True
+2024-11-28 15:34:39,883 [trainer.py] => init_cls: 5
+2024-11-28 15:34:39,884 [trainer.py] => increment: 5
+2024-11-28 15:34:39,884 [trainer.py] => model_name: aper_bn
+2024-11-28 15:34:39,884 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-28 15:34:39,885 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-28 15:34:39,885 [trainer.py] => seed: 1993
+2024-11-28 15:34:39,886 [trainer.py] => tuned_epoch: 1
+2024-11-28 15:34:39,886 [trainer.py] => init_lr: 0.01
+2024-11-28 15:34:39,886 [trainer.py] => batch_size: 192
+2024-11-28 15:34:41,648 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-28 15:34:46,434 [trainer.py] => All params: 11176512
+2024-11-28 15:34:46,434 [trainer.py] => Trainable params: 11176512
+2024-11-28 15:34:46,436 [aper_bn.py] => Learning on 0-5
+2024-11-28 15:36:53,578 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-29 10:36:47,011 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-29 10:36:47,012 [trainer.py] => prefix: exp
+2024-11-29 10:36:47,012 [trainer.py] => dataset: cifar224
+2024-11-29 10:36:47,014 [trainer.py] => memory_size: 2000
+2024-11-29 10:36:47,014 [trainer.py] => memory_per_class: 20
+2024-11-29 10:36:47,014 [trainer.py] => fixed_memory: False
+2024-11-29 10:36:47,014 [trainer.py] => shuffle: True
+2024-11-29 10:36:47,014 [trainer.py] => init_cls: 5
+2024-11-29 10:36:47,015 [trainer.py] => increment: 5
+2024-11-29 10:36:47,015 [trainer.py] => model_name: aper_bn
+2024-11-29 10:36:47,015 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-29 10:36:47,016 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-29 10:36:47,016 [trainer.py] => seed: 1993
+2024-11-29 10:36:47,016 [trainer.py] => tuned_epoch: 1
+2024-11-29 10:36:47,017 [trainer.py] => init_lr: 0.01
+2024-11-29 10:36:47,017 [trainer.py] => batch_size: 192
+2024-11-29 10:36:48,450 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-29 10:36:53,622 [trainer.py] => All params: 11176512
+2024-11-29 10:36:53,623 [trainer.py] => Trainable params: 11176512
+2024-11-29 10:36:53,624 [aper_bn.py] => Learning on 0-5
+2024-11-29 10:38:10,668 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-29 10:38:10,669 [trainer.py] => prefix: exp
+2024-11-29 10:38:10,669 [trainer.py] => dataset: cifar224
+2024-11-29 10:38:10,670 [trainer.py] => memory_size: 2000
+2024-11-29 10:38:10,670 [trainer.py] => memory_per_class: 20
+2024-11-29 10:38:10,671 [trainer.py] => fixed_memory: False
+2024-11-29 10:38:10,671 [trainer.py] => shuffle: True
+2024-11-29 10:38:10,672 [trainer.py] => init_cls: 5
+2024-11-29 10:38:10,672 [trainer.py] => increment: 5
+2024-11-29 10:38:10,672 [trainer.py] => model_name: aper_bn
+2024-11-29 10:38:10,672 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-29 10:38:10,672 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-29 10:38:10,673 [trainer.py] => seed: 1993
+2024-11-29 10:38:10,673 [trainer.py] => tuned_epoch: 1
+2024-11-29 10:38:10,673 [trainer.py] => init_lr: 0.01
+2024-11-29 10:38:10,673 [trainer.py] => batch_size: 192
+2024-11-29 10:38:12,029 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-29 10:38:14,676 [trainer.py] => All params: 11176512
+2024-11-29 10:38:14,678 [trainer.py] => Trainable params: 11176512
+2024-11-29 10:38:14,679 [aper_bn.py] => Learning on 0-5
+2024-11-29 10:40:16,333 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-29 10:44:32,735 [trainer.py] => No NME accuracy.
+2024-11-29 10:44:32,735 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-11-29 10:44:32,736 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-11-29 10:44:32,736 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-11-29 10:44:32,737 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-11-29 10:44:32,737 [trainer.py] => All params: 22358145
+2024-11-29 10:44:32,738 [trainer.py] => Trainable params: 22358145
+2024-11-29 10:44:32,740 [aper_bn.py] => Learning on 5-10
+2024-11-29 10:47:03,451 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-29 10:47:03,452 [trainer.py] => prefix: exp
+2024-11-29 10:47:03,452 [trainer.py] => dataset: cifar224
+2024-11-29 10:47:03,452 [trainer.py] => memory_size: 2000
+2024-11-29 10:47:03,453 [trainer.py] => memory_per_class: 20
+2024-11-29 10:47:03,453 [trainer.py] => fixed_memory: False
+2024-11-29 10:47:03,453 [trainer.py] => shuffle: True
+2024-11-29 10:47:03,454 [trainer.py] => init_cls: 5
+2024-11-29 10:47:03,454 [trainer.py] => increment: 5
+2024-11-29 10:47:03,454 [trainer.py] => model_name: aper_bn
+2024-11-29 10:47:03,455 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-29 10:47:03,455 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-29 10:47:03,455 [trainer.py] => seed: 1993
+2024-11-29 10:47:03,455 [trainer.py] => tuned_epoch: 1
+2024-11-29 10:47:03,456 [trainer.py] => init_lr: 0.01
+2024-11-29 10:47:03,456 [trainer.py] => batch_size: 192
+2024-11-29 10:47:04,845 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-29 10:47:07,575 [trainer.py] => All params: 11176512
+2024-11-29 10:47:07,575 [trainer.py] => Trainable params: 11176512
+2024-11-29 10:47:07,577 [aper_bn.py] => Learning on 0-5
+2024-11-29 10:49:15,397 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-29 10:53:35,135 [trainer.py] => No NME accuracy.
+2024-11-29 10:53:35,136 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-11-29 10:53:35,136 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-11-29 10:53:35,136 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-11-29 10:53:35,137 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-11-29 10:53:35,137 [trainer.py] => All params: 22358145
+2024-11-29 10:53:35,138 [trainer.py] => Trainable params: 22358145
+2024-11-29 10:53:35,140 [aper_bn.py] => Learning on 5-10
+2024-11-29 10:58:57,067 [trainer.py] => No NME accuracy.
+2024-11-29 10:58:57,068 [trainer.py] => CNN: {'total': np.float64(76.5), '00-09': np.float64(76.5), 'old': np.float64(79.0), 'new': np.float64(74.0)}
+2024-11-29 10:58:57,068 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5)]
+2024-11-29 10:58:57,068 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4)]
+
+2024-11-29 10:58:57,069 [trainer.py] => Average Accuracy (CNN): 83.95
+2024-11-29 10:58:57,070 [trainer.py] => All params: 22363265
+2024-11-29 10:58:57,071 [trainer.py] => Trainable params: 22363265
+2024-11-29 10:58:57,072 [aper_bn.py] => Learning on 10-15
+2024-11-29 11:19:01,329 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-29 11:19:01,330 [trainer.py] => prefix: exp
+2024-11-29 11:19:01,330 [trainer.py] => dataset: cifar224
+2024-11-29 11:19:01,330 [trainer.py] => memory_size: 2000
+2024-11-29 11:19:01,331 [trainer.py] => memory_per_class: 20
+2024-11-29 11:19:01,331 [trainer.py] => fixed_memory: False
+2024-11-29 11:19:01,331 [trainer.py] => shuffle: True
+2024-11-29 11:19:01,332 [trainer.py] => init_cls: 5
+2024-11-29 11:19:01,332 [trainer.py] => increment: 5
+2024-11-29 11:19:01,333 [trainer.py] => model_name: aper_bn
+2024-11-29 11:19:01,333 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-29 11:19:01,333 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-29 11:19:01,333 [trainer.py] => seed: 1993
+2024-11-29 11:19:01,334 [trainer.py] => tuned_epoch: 1
+2024-11-29 11:19:01,334 [trainer.py] => init_lr: 0.01
+2024-11-29 11:19:01,334 [trainer.py] => batch_size: 192
+2024-11-29 11:19:02,684 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-29 11:19:07,020 [trainer.py] => All params: 11176512
+2024-11-29 11:19:07,020 [trainer.py] => Trainable params: 11176512
+2024-11-29 11:19:07,022 [aper_bn.py] => Learning on 0-5
+2024-11-29 11:21:09,328 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-29 11:25:32,029 [trainer.py] => No NME accuracy.
+2024-11-29 11:25:32,029 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-11-29 11:25:32,031 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-11-29 11:25:32,031 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-11-29 11:25:32,031 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-11-29 11:25:32,032 [trainer.py] => All params: 22358145
+2024-11-29 11:25:32,033 [trainer.py] => Trainable params: 22358145
+2024-11-29 11:25:32,035 [aper_bn.py] => Learning on 5-10
+2024-11-29 11:30:38,964 [trainer.py] => No NME accuracy.
+2024-11-29 11:30:38,964 [trainer.py] => CNN: {'total': np.float64(76.5), '00-09': np.float64(76.5), 'old': np.float64(79.0), 'new': np.float64(74.0)}
+2024-11-29 11:30:38,965 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5)]
+2024-11-29 11:30:38,965 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4)]
+
+2024-11-29 11:30:38,966 [trainer.py] => Average Accuracy (CNN): 83.95
+2024-11-29 11:30:38,967 [trainer.py] => All params: 22363265
+2024-11-29 11:30:38,967 [trainer.py] => Trainable params: 22363265
+2024-11-29 11:30:38,969 [aper_bn.py] => Learning on 10-15
+2024-11-29 11:35:53,526 [trainer.py] => No NME accuracy.
+2024-11-29 11:35:53,526 [trainer.py] => CNN: {'total': np.float64(67.4), '00-09': np.float64(68.3), '10-19': np.float64(65.6), 'old': np.float64(68.3), 'new': np.float64(65.6)}
+2024-11-29 11:35:53,527 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4)]
+2024-11-29 11:35:53,527 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93)]
+
+2024-11-29 11:35:53,527 [trainer.py] => Average Accuracy (CNN): 78.43333333333334
+2024-11-29 11:35:53,528 [trainer.py] => All params: 22368385
+2024-11-29 11:35:53,528 [trainer.py] => Trainable params: 22368385
+2024-11-29 11:35:53,565 [aper_bn.py] => Learning on 15-20
+2024-11-29 11:41:43,392 [trainer.py] => No NME accuracy.
+2024-11-29 11:41:43,393 [trainer.py] => CNN: {'total': np.float64(59.65), '00-09': np.float64(64.5), '10-19': np.float64(54.8), 'old': np.float64(62.53), 'new': np.float64(51.0)}
+2024-11-29 11:41:43,393 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65)]
+2024-11-29 11:41:43,394 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5)]
+
+2024-11-29 11:41:43,394 [trainer.py] => Average Accuracy (CNN): 73.7375
+2024-11-29 11:41:43,395 [trainer.py] => All params: 22373505
+2024-11-29 11:41:43,396 [trainer.py] => Trainable params: 22373505
+2024-11-29 11:41:43,441 [aper_bn.py] => Learning on 20-25
+2024-11-29 11:48:14,840 [trainer.py] => No NME accuracy.
+2024-11-29 11:48:14,840 [trainer.py] => CNN: {'total': np.float64(57.2), '00-09': np.float64(62.6), '10-19': np.float64(50.4), '20-29': np.float64(60.0), 'old': np.float64(56.5), 'new': np.float64(60.0)}
+2024-11-29 11:48:14,841 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2)]
+2024-11-29 11:48:14,841 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56)]
+
+2024-11-29 11:48:14,841 [trainer.py] => Average Accuracy (CNN): 70.42999999999999
+2024-11-29 11:48:14,842 [trainer.py] => All params: 22378625
+2024-11-29 11:48:14,843 [trainer.py] => Trainable params: 22378625
+2024-11-29 11:48:14,845 [aper_bn.py] => Learning on 25-30
+2024-11-29 11:55:09,773 [trainer.py] => No NME accuracy.
+2024-11-29 11:55:09,774 [trainer.py] => CNN: {'total': np.float64(56.23), '00-09': np.float64(61.0), '10-19': np.float64(48.4), '20-29': np.float64(59.3), 'old': np.float64(55.52), 'new': np.float64(59.8)}
+2024-11-29 11:55:09,774 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23)]
+2024-11-29 11:55:09,774 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37)]
+
+2024-11-29 11:55:09,775 [trainer.py] => Average Accuracy (CNN): 68.06333333333333
+2024-11-29 11:55:09,776 [trainer.py] => All params: 22383745
+2024-11-29 11:55:09,776 [trainer.py] => Trainable params: 22383745
+2024-11-29 11:55:09,778 [aper_bn.py] => Learning on 30-35
+2024-11-29 12:02:54,454 [trainer.py] => No NME accuracy.
+2024-11-29 12:02:54,454 [trainer.py] => CNN: {'total': np.float64(53.09), '00-09': np.float64(59.1), '10-19': np.float64(45.8), '20-29': np.float64(57.0), '30-39': np.float64(47.8), 'old': np.float64(53.97), 'new': np.float64(47.8)}
+2024-11-29 12:02:54,454 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09)]
+2024-11-29 12:02:54,455 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34)]
+
+2024-11-29 12:02:54,455 [trainer.py] => Average Accuracy (CNN): 65.92428571428572
+2024-11-29 12:02:54,456 [trainer.py] => All params: 22388865
+2024-11-29 12:02:54,457 [trainer.py] => Trainable params: 22388865
+2024-11-29 12:02:54,459 [aper_bn.py] => Learning on 35-40
+2024-11-29 12:10:40,895 [trainer.py] => No NME accuracy.
+2024-11-29 12:10:40,895 [trainer.py] => CNN: {'total': np.float64(51.02), '00-09': np.float64(57.2), '10-19': np.float64(44.2), '20-29': np.float64(55.3), '30-39': np.float64(47.4), 'old': np.float64(51.4), 'new': np.float64(48.4)}
+2024-11-29 12:10:40,895 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02)]
+2024-11-29 12:10:40,896 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85)]
+
+2024-11-29 12:10:40,896 [trainer.py] => Average Accuracy (CNN): 64.06125
+2024-11-29 12:10:40,897 [trainer.py] => All params: 22393985
+2024-11-29 12:10:40,897 [trainer.py] => Trainable params: 22393985
+2024-11-29 12:10:40,899 [aper_bn.py] => Learning on 40-45
+2024-11-29 12:20:06,998 [trainer.py] => No NME accuracy.
+2024-11-29 12:20:07,000 [trainer.py] => CNN: {'total': np.float64(49.87), '00-09': np.float64(55.0), '10-19': np.float64(42.3), '20-29': np.float64(54.2), '30-39': np.float64(47.0), '40-49': np.float64(51.8), 'old': np.float64(49.62), 'new': np.float64(51.8)}
+2024-11-29 12:20:07,000 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87)]
+2024-11-29 12:20:07,001 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96)]
+
+2024-11-29 12:20:07,001 [trainer.py] => Average Accuracy (CNN): 62.48444444444445
+2024-11-29 12:20:07,002 [trainer.py] => All params: 22399105
+2024-11-29 12:20:07,003 [trainer.py] => Trainable params: 22399105
+2024-11-29 12:20:07,006 [aper_bn.py] => Learning on 45-50
+2024-11-29 12:29:19,546 [trainer.py] => No NME accuracy.
+2024-11-29 12:29:19,547 [trainer.py] => CNN: {'total': np.float64(49.58), '00-09': np.float64(53.7), '10-19': np.float64(40.3), '20-29': np.float64(52.4), '30-39': np.float64(44.1), '40-49': np.float64(57.4), 'old': np.float64(47.93), 'new': np.float64(64.4)}
+2024-11-29 12:29:19,547 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87), np.float64(49.58)]
+2024-11-29 12:29:19,547 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96), np.float64(79.52)]
+
+2024-11-29 12:29:19,548 [trainer.py] => Average Accuracy (CNN): 61.194
+2024-11-29 12:29:19,549 [trainer.py] => All params: 22404225
+2024-11-29 12:29:19,550 [trainer.py] => Trainable params: 22404225
+2024-11-29 12:29:19,612 [aper_bn.py] => Learning on 50-55
+2024-11-29 12:39:25,096 [trainer.py] => No NME accuracy.
+2024-11-29 12:39:25,096 [trainer.py] => CNN: {'total': np.float64(48.13), '00-09': np.float64(51.2), '10-19': np.float64(39.5), '20-29': np.float64(51.1), '30-39': np.float64(42.5), '40-49': np.float64(53.7), '50-59': np.float64(53.4), 'old': np.float64(47.6), 'new': np.float64(53.4)}
+2024-11-29 12:39:25,097 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87), np.float64(49.58), np.float64(48.13)]
+2024-11-29 12:39:25,097 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96), np.float64(79.52), np.float64(78.4)]
+
+2024-11-29 12:39:25,097 [trainer.py] => Average Accuracy (CNN): 60.00636363636364
+2024-11-29 12:39:25,098 [trainer.py] => All params: 22409345
+2024-11-29 12:39:25,099 [trainer.py] => Trainable params: 22409345
+2024-11-29 12:39:25,102 [aper_bn.py] => Learning on 55-60
+2024-11-29 13:58:49,179 [trainer.py] => No NME accuracy.
+2024-11-29 13:58:49,180 [trainer.py] => CNN: {'total': np.float64(46.27), '00-09': np.float64(49.5), '10-19': np.float64(38.2), '20-29': np.float64(49.9), '30-39': np.float64(41.7), '40-49': np.float64(52.4), '50-59': np.float64(45.9), 'old': np.float64(46.96), 'new': np.float64(38.6)}
+2024-11-29 13:58:49,181 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87), np.float64(49.58), np.float64(48.13), np.float64(46.27)]
+2024-11-29 13:58:49,181 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96), np.float64(79.52), np.float64(78.4), np.float64(76.27)]
+
+2024-11-29 13:58:49,182 [trainer.py] => Average Accuracy (CNN): 58.86166666666667
+2024-11-29 13:58:49,183 [trainer.py] => All params: 22414465
+2024-11-29 13:58:49,183 [trainer.py] => Trainable params: 22414465
+2024-11-29 13:58:49,186 [aper_bn.py] => Learning on 60-65
+2024-11-29 14:09:06,523 [trainer.py] => No NME accuracy.
+2024-11-29 14:09:06,524 [trainer.py] => CNN: {'total': np.float64(45.49), '00-09': np.float64(48.0), '10-19': np.float64(36.7), '20-29': np.float64(49.6), '30-39': np.float64(39.6), '40-49': np.float64(49.8), '50-59': np.float64(43.4), '60-69': np.float64(57.2), 'old': np.float64(44.52), 'new': np.float64(57.2)}
+2024-11-29 14:09:06,525 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5), np.float64(67.4), np.float64(59.65), np.float64(57.2), np.float64(56.23), np.float64(53.09), np.float64(51.02), np.float64(49.87), np.float64(49.58), np.float64(48.13), np.float64(46.27), np.float64(45.49)]
+2024-11-29 14:09:06,525 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4), np.float64(93.93), np.float64(89.5), np.float64(87.56), np.float64(85.37), np.float64(83.34), np.float64(81.85), np.float64(79.96), np.float64(79.52), np.float64(78.4), np.float64(76.27), np.float64(75.37)]
+
+2024-11-29 14:09:06,525 [trainer.py] => Average Accuracy (CNN): 57.83307692307692
+2024-11-29 14:09:06,526 [trainer.py] => All params: 22419585
+2024-11-29 14:09:06,527 [trainer.py] => Trainable params: 22419585
+2024-11-29 14:09:06,529 [aper_bn.py] => Learning on 65-70
+2024-11-29 14:48:41,607 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-29 14:48:41,608 [trainer.py] => prefix: exp
+2024-11-29 14:48:41,608 [trainer.py] => dataset: cifar224
+2024-11-29 14:48:41,608 [trainer.py] => memory_size: 2000
+2024-11-29 14:48:41,609 [trainer.py] => memory_per_class: 20
+2024-11-29 14:48:41,609 [trainer.py] => fixed_memory: False
+2024-11-29 14:48:41,609 [trainer.py] => shuffle: True
+2024-11-29 14:48:41,609 [trainer.py] => init_cls: 5
+2024-11-29 14:48:41,610 [trainer.py] => increment: 5
+2024-11-29 14:48:41,610 [trainer.py] => model_name: aper_bn
+2024-11-29 14:48:41,610 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-29 14:48:41,611 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-29 14:48:41,611 [trainer.py] => seed: 1993
+2024-11-29 14:48:41,611 [trainer.py] => tuned_epoch: 1
+2024-11-29 14:48:41,611 [trainer.py] => init_lr: 0.01
+2024-11-29 14:48:41,612 [trainer.py] => batch_size: 192
+2024-11-29 14:48:42,976 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-29 14:48:48,137 [trainer.py] => All params: 11176512
+2024-11-29 14:48:48,138 [trainer.py] => Trainable params: 11176512
+2024-11-29 14:48:48,140 [aper_bn.py] => Learning on 0-5
+2024-11-29 14:50:58,310 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-29 14:51:41,208 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-11-29 14:51:41,209 [trainer.py] => prefix: exp
+2024-11-29 14:51:41,209 [trainer.py] => dataset: cifar224
+2024-11-29 14:51:41,210 [trainer.py] => memory_size: 2000
+2024-11-29 14:51:41,210 [trainer.py] => memory_per_class: 20
+2024-11-29 14:51:41,210 [trainer.py] => fixed_memory: False
+2024-11-29 14:51:41,210 [trainer.py] => shuffle: True
+2024-11-29 14:51:41,210 [trainer.py] => init_cls: 5
+2024-11-29 14:51:41,211 [trainer.py] => increment: 5
+2024-11-29 14:51:41,211 [trainer.py] => model_name: aper_bn
+2024-11-29 14:51:41,211 [trainer.py] => convnet_type: pretrained_resnet18
+2024-11-29 14:51:41,211 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-11-29 14:51:41,212 [trainer.py] => seed: 1993
+2024-11-29 14:51:41,212 [trainer.py] => tuned_epoch: 1
+2024-11-29 14:51:41,212 [trainer.py] => init_lr: 0.01
+2024-11-29 14:51:41,212 [trainer.py] => batch_size: 192
+2024-11-29 14:51:42,580 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-11-29 14:51:45,131 [trainer.py] => All params: 11176512
+2024-11-29 14:51:45,131 [trainer.py] => Trainable params: 11176512
+2024-11-29 14:51:45,133 [aper_bn.py] => Learning on 0-5
+2024-11-29 14:53:39,502 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-11-29 14:57:45,671 [trainer.py] => No NME accuracy.
+2024-11-29 14:57:45,671 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-11-29 14:57:45,671 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-11-29 14:57:45,671 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-11-29 14:57:45,672 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-11-29 14:57:45,672 [trainer.py] => All params: 22358145
+2024-11-29 14:57:45,673 [trainer.py] => Trainable params: 22358145
+2024-11-29 14:57:45,674 [aper_bn.py] => Learning on 5-10
+2024-11-29 15:02:37,755 [trainer.py] => No NME accuracy.
+2024-11-29 15:02:37,755 [trainer.py] => CNN: {'total': np.float64(76.5), '00-09': np.float64(76.5), 'old': np.float64(79.0), 'new': np.float64(74.0)}
+2024-11-29 15:02:37,755 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5)]
+2024-11-29 15:02:37,756 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4)]
+
+2024-11-29 15:02:37,756 [trainer.py] => Average Accuracy (CNN): 83.95
+2024-11-29 15:02:37,757 [trainer.py] => All params: 22363265
+2024-11-29 15:02:37,758 [trainer.py] => Trainable params: 22363265
+2024-11-29 15:02:37,759 [aper_bn.py] => Learning on 10-15
+2024-12-02 10:01:23,445 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 10:01:23,445 [trainer.py] => prefix: exp
+2024-12-02 10:01:23,445 [trainer.py] => dataset: cifar224
+2024-12-02 10:01:23,445 [trainer.py] => memory_size: 2000
+2024-12-02 10:01:23,445 [trainer.py] => memory_per_class: 20
+2024-12-02 10:01:23,445 [trainer.py] => fixed_memory: False
+2024-12-02 10:01:23,445 [trainer.py] => shuffle: True
+2024-12-02 10:01:23,445 [trainer.py] => init_cls: 5
+2024-12-02 10:01:23,445 [trainer.py] => increment: 5
+2024-12-02 10:01:23,445 [trainer.py] => model_name: aper_bn
+2024-12-02 10:01:23,445 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 10:01:23,445 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 10:01:23,445 [trainer.py] => seed: 1993
+2024-12-02 10:01:23,445 [trainer.py] => tuned_epoch: 10
+2024-12-02 10:01:23,445 [trainer.py] => init_lr: 0.01
+2024-12-02 10:01:23,445 [trainer.py] => batch_size: 192
+2024-12-02 10:01:24,776 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 10:01:24,783 [data_manager.py] => (50000, 32, 32, 3)
+2024-12-02 10:01:24,783 [data_manager.py] => (50000,)
+2024-12-02 10:01:27,199 [trainer.py] => All params: 11176512
+2024-12-02 10:01:27,199 [trainer.py] => Trainable params: 11176512
+2024-12-02 10:01:27,199 [aper_bn.py] => Learning on 0-5
+2024-12-02 10:05:37,073 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 10:05:37,073 [trainer.py] => prefix: exp
+2024-12-02 10:05:37,073 [trainer.py] => dataset: cifar224
+2024-12-02 10:05:37,073 [trainer.py] => memory_size: 2000
+2024-12-02 10:05:37,073 [trainer.py] => memory_per_class: 20
+2024-12-02 10:05:37,073 [trainer.py] => fixed_memory: False
+2024-12-02 10:05:37,073 [trainer.py] => shuffle: True
+2024-12-02 10:05:37,073 [trainer.py] => init_cls: 5
+2024-12-02 10:05:37,073 [trainer.py] => increment: 5
+2024-12-02 10:05:37,073 [trainer.py] => model_name: aper_bn
+2024-12-02 10:05:37,073 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 10:05:37,073 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 10:05:37,073 [trainer.py] => seed: 1993
+2024-12-02 10:05:37,073 [trainer.py] => tuned_epoch: 10
+2024-12-02 10:05:37,078 [trainer.py] => init_lr: 0.01
+2024-12-02 10:05:37,078 [trainer.py] => batch_size: 192
+2024-12-02 10:05:38,545 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 10:05:38,546 [data_manager.py] => (50000, 32, 32, 3)
+2024-12-02 10:05:38,546 [data_manager.py] => (50000,)
+2024-12-02 10:05:42,086 [trainer.py] => All params: 11176512
+2024-12-02 10:05:42,086 [trainer.py] => Trainable params: 11176512
+2024-12-02 10:05:42,086 [aper_bn.py] => Learning on 0-5
+2024-12-02 10:06:35,889 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 10:06:35,889 [trainer.py] => prefix: exp
+2024-12-02 10:06:35,889 [trainer.py] => dataset: cifar224
+2024-12-02 10:06:35,889 [trainer.py] => memory_size: 2000
+2024-12-02 10:06:35,889 [trainer.py] => memory_per_class: 20
+2024-12-02 10:06:35,889 [trainer.py] => fixed_memory: False
+2024-12-02 10:06:35,889 [trainer.py] => shuffle: True
+2024-12-02 10:06:35,889 [trainer.py] => init_cls: 5
+2024-12-02 10:06:35,889 [trainer.py] => increment: 5
+2024-12-02 10:06:35,889 [trainer.py] => model_name: aper_bn
+2024-12-02 10:06:35,889 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 10:06:35,889 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 10:06:35,889 [trainer.py] => seed: 1993
+2024-12-02 10:06:35,889 [trainer.py] => tuned_epoch: 10
+2024-12-02 10:06:35,889 [trainer.py] => init_lr: 0.01
+2024-12-02 10:06:35,894 [trainer.py] => batch_size: 192
+2024-12-02 10:08:00,085 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 10:08:00,085 [trainer.py] => prefix: exp
+2024-12-02 10:08:00,100 [trainer.py] => dataset: cifar224
+2024-12-02 10:08:00,100 [trainer.py] => memory_size: 2000
+2024-12-02 10:08:00,100 [trainer.py] => memory_per_class: 20
+2024-12-02 10:08:00,100 [trainer.py] => fixed_memory: False
+2024-12-02 10:08:00,100 [trainer.py] => shuffle: True
+2024-12-02 10:08:00,100 [trainer.py] => init_cls: 5
+2024-12-02 10:08:00,100 [trainer.py] => increment: 5
+2024-12-02 10:08:00,100 [trainer.py] => model_name: aper_bn
+2024-12-02 10:08:00,100 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 10:08:00,100 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 10:08:00,100 [trainer.py] => seed: 1993
+2024-12-02 10:08:00,100 [trainer.py] => tuned_epoch: 10
+2024-12-02 10:08:00,100 [trainer.py] => init_lr: 0.01
+2024-12-02 10:08:00,100 [trainer.py] => batch_size: 192
+2024-12-02 10:09:36,617 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 10:09:36,619 [trainer.py] => prefix: exp
+2024-12-02 10:09:36,619 [trainer.py] => dataset: cifar224
+2024-12-02 10:09:36,619 [trainer.py] => memory_size: 2000
+2024-12-02 10:09:36,619 [trainer.py] => memory_per_class: 20
+2024-12-02 10:09:36,619 [trainer.py] => fixed_memory: False
+2024-12-02 10:09:36,619 [trainer.py] => shuffle: True
+2024-12-02 10:09:36,621 [trainer.py] => init_cls: 5
+2024-12-02 10:09:36,621 [trainer.py] => increment: 5
+2024-12-02 10:09:36,621 [trainer.py] => model_name: aper_bn
+2024-12-02 10:09:36,621 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 10:09:36,621 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 10:09:36,621 [trainer.py] => seed: 1993
+2024-12-02 10:09:36,623 [trainer.py] => tuned_epoch: 10
+2024-12-02 10:09:36,623 [trainer.py] => init_lr: 0.01
+2024-12-02 10:09:36,623 [trainer.py] => batch_size: 192
+2024-12-02 10:09:39,203 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 10:09:39,203 [data_manager.py] => (50000, 32, 32, 3)
+2024-12-02 10:09:39,203 [data_manager.py] => (50000,)
+2024-12-02 10:09:44,839 [trainer.py] => All params: 11176512
+2024-12-02 10:09:44,839 [trainer.py] => Trainable params: 11176512
+2024-12-02 10:09:44,841 [aper_bn.py] => Learning on 0-5
+2024-12-02 15:14:06,208 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 15:14:06,209 [trainer.py] => prefix: exp
+2024-12-02 15:14:06,209 [trainer.py] => dataset: cifar224
+2024-12-02 15:14:06,209 [trainer.py] => memory_size: 2000
+2024-12-02 15:14:06,210 [trainer.py] => memory_per_class: 20
+2024-12-02 15:14:06,210 [trainer.py] => fixed_memory: False
+2024-12-02 15:14:06,210 [trainer.py] => shuffle: True
+2024-12-02 15:14:06,211 [trainer.py] => init_cls: 5
+2024-12-02 15:14:06,211 [trainer.py] => increment: 5
+2024-12-02 15:14:06,211 [trainer.py] => model_name: aper_bn
+2024-12-02 15:14:06,211 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 15:14:06,212 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 15:14:06,212 [trainer.py] => seed: 1993
+2024-12-02 15:14:06,212 [trainer.py] => tuned_epoch: 10
+2024-12-02 15:14:06,212 [trainer.py] => init_lr: 0.01
+2024-12-02 15:14:06,213 [trainer.py] => batch_size: 192
+2024-12-02 15:14:07,692 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 15:15:51,835 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 15:15:51,835 [trainer.py] => prefix: exp
+2024-12-02 15:15:51,836 [trainer.py] => dataset: cifar224
+2024-12-02 15:15:51,837 [trainer.py] => memory_size: 2000
+2024-12-02 15:15:51,837 [trainer.py] => memory_per_class: 20
+2024-12-02 15:15:51,838 [trainer.py] => fixed_memory: False
+2024-12-02 15:15:51,839 [trainer.py] => shuffle: True
+2024-12-02 15:15:51,839 [trainer.py] => init_cls: 5
+2024-12-02 15:15:51,839 [trainer.py] => increment: 5
+2024-12-02 15:15:51,840 [trainer.py] => model_name: aper_bn
+2024-12-02 15:15:51,840 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 15:15:51,840 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 15:15:51,840 [trainer.py] => seed: 1993
+2024-12-02 15:15:51,841 [trainer.py] => tuned_epoch: 10
+2024-12-02 15:15:51,841 [trainer.py] => init_lr: 0.01
+2024-12-02 15:15:51,841 [trainer.py] => batch_size: 192
+2024-12-02 15:15:53,342 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 15:16:55,042 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 15:16:55,042 [trainer.py] => prefix: exp
+2024-12-02 15:16:55,042 [trainer.py] => dataset: cifar224
+2024-12-02 15:16:55,043 [trainer.py] => memory_size: 2000
+2024-12-02 15:16:55,043 [trainer.py] => memory_per_class: 20
+2024-12-02 15:16:55,044 [trainer.py] => fixed_memory: False
+2024-12-02 15:16:55,044 [trainer.py] => shuffle: True
+2024-12-02 15:16:55,044 [trainer.py] => init_cls: 5
+2024-12-02 15:16:55,044 [trainer.py] => increment: 5
+2024-12-02 15:16:55,044 [trainer.py] => model_name: aper_bn
+2024-12-02 15:16:55,045 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 15:16:55,045 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 15:16:55,045 [trainer.py] => seed: 1993
+2024-12-02 15:16:55,045 [trainer.py] => tuned_epoch: 10
+2024-12-02 15:16:55,046 [trainer.py] => init_lr: 0.01
+2024-12-02 15:16:55,046 [trainer.py] => batch_size: 192
+2024-12-02 15:16:56,540 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 15:18:33,988 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 15:18:33,988 [trainer.py] => prefix: exp
+2024-12-02 15:18:33,989 [trainer.py] => dataset: cifar224
+2024-12-02 15:18:33,989 [trainer.py] => memory_size: 2000
+2024-12-02 15:18:33,989 [trainer.py] => memory_per_class: 20
+2024-12-02 15:18:33,990 [trainer.py] => fixed_memory: False
+2024-12-02 15:18:33,991 [trainer.py] => shuffle: True
+2024-12-02 15:18:33,991 [trainer.py] => init_cls: 5
+2024-12-02 15:18:33,991 [trainer.py] => increment: 5
+2024-12-02 15:18:33,992 [trainer.py] => model_name: aper_bn
+2024-12-02 15:18:33,992 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 15:18:33,992 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 15:18:33,993 [trainer.py] => seed: 1993
+2024-12-02 15:18:33,993 [trainer.py] => tuned_epoch: 10
+2024-12-02 15:18:33,993 [trainer.py] => init_lr: 0.01
+2024-12-02 15:18:33,993 [trainer.py] => batch_size: 192
+2024-12-02 15:18:35,525 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 15:18:36,985 [trainer.py] => All params: 11176512
+2024-12-02 15:18:36,986 [trainer.py] => Trainable params: 11176512
+2024-12-02 15:18:36,987 [aper_bn.py] => Learning on 0-5
+2024-12-02 15:19:29,150 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 15:19:29,150 [trainer.py] => prefix: exp
+2024-12-02 15:19:29,151 [trainer.py] => dataset: cifar224
+2024-12-02 15:19:29,151 [trainer.py] => memory_size: 2000
+2024-12-02 15:19:29,151 [trainer.py] => memory_per_class: 20
+2024-12-02 15:19:29,151 [trainer.py] => fixed_memory: False
+2024-12-02 15:19:29,151 [trainer.py] => shuffle: True
+2024-12-02 15:19:29,151 [trainer.py] => init_cls: 5
+2024-12-02 15:19:29,151 [trainer.py] => increment: 5
+2024-12-02 15:19:29,152 [trainer.py] => model_name: aper_bn
+2024-12-02 15:19:29,152 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 15:19:29,152 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 15:19:29,152 [trainer.py] => seed: 1993
+2024-12-02 15:19:29,152 [trainer.py] => tuned_epoch: 1
+2024-12-02 15:19:29,152 [trainer.py] => init_lr: 0.01
+2024-12-02 15:19:29,152 [trainer.py] => batch_size: 192
+2024-12-02 15:19:30,688 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 15:19:31,954 [trainer.py] => All params: 11176512
+2024-12-02 15:19:31,954 [trainer.py] => Trainable params: 11176512
+2024-12-02 15:19:31,955 [aper_bn.py] => Learning on 0-5
+2024-12-02 15:21:38,193 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-12-02 15:25:14,697 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-02 15:25:14,697 [trainer.py] => prefix: exp
+2024-12-02 15:25:14,698 [trainer.py] => dataset: cifar224
+2024-12-02 15:25:14,698 [trainer.py] => memory_size: 2000
+2024-12-02 15:25:14,698 [trainer.py] => memory_per_class: 20
+2024-12-02 15:25:14,698 [trainer.py] => fixed_memory: False
+2024-12-02 15:25:14,699 [trainer.py] => shuffle: True
+2024-12-02 15:25:14,699 [trainer.py] => init_cls: 5
+2024-12-02 15:25:14,699 [trainer.py] => increment: 5
+2024-12-02 15:25:14,699 [trainer.py] => model_name: aper_bn
+2024-12-02 15:25:14,699 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-02 15:25:14,700 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-02 15:25:14,700 [trainer.py] => seed: 1993
+2024-12-02 15:25:14,700 [trainer.py] => tuned_epoch: 1
+2024-12-02 15:25:14,700 [trainer.py] => init_lr: 0.01
+2024-12-02 15:25:14,700 [trainer.py] => batch_size: 192
+2024-12-02 15:25:16,103 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-02 15:25:17,637 [trainer.py] => All params: 11176512
+2024-12-02 15:25:17,637 [trainer.py] => Trainable params: 11176512
+2024-12-02 15:25:17,638 [aper_bn.py] => Learning on 0-5
+2024-12-02 15:27:20,431 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-12-02 15:31:44,139 [trainer.py] => No NME accuracy.
+2024-12-02 15:31:44,140 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-12-02 15:31:44,140 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-12-02 15:31:44,140 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-12-02 15:31:44,142 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-12-02 15:31:44,142 [trainer.py] => All params: 22358145
+2024-12-02 15:31:44,143 [trainer.py] => Trainable params: 22358145
+2024-12-02 15:31:44,146 [aper_bn.py] => Learning on 5-10
+2024-12-03 09:14:35,847 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-03 09:14:35,850 [trainer.py] => prefix: exp
+2024-12-03 09:14:35,850 [trainer.py] => dataset: cifar224
+2024-12-03 09:14:35,850 [trainer.py] => memory_size: 2000
+2024-12-03 09:14:35,851 [trainer.py] => memory_per_class: 20
+2024-12-03 09:14:35,851 [trainer.py] => fixed_memory: False
+2024-12-03 09:14:35,851 [trainer.py] => shuffle: True
+2024-12-03 09:14:35,852 [trainer.py] => init_cls: 5
+2024-12-03 09:14:35,852 [trainer.py] => increment: 5
+2024-12-03 09:14:35,852 [trainer.py] => model_name: aper_bn
+2024-12-03 09:14:35,852 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-03 09:14:35,853 [trainer.py] => device: [device(type='cuda', index=0)]
+2024-12-03 09:14:35,853 [trainer.py] => seed: 1993
+2024-12-03 09:14:35,853 [trainer.py] => tuned_epoch: 1
+2024-12-03 09:14:35,853 [trainer.py] => init_lr: 0.01
+2024-12-03 09:14:35,854 [trainer.py] => batch_size: 192
+2024-12-03 09:14:37,323 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-03 09:14:40,298 [trainer.py] => All params: 11176512
+2024-12-03 09:14:40,298 [trainer.py] => Trainable params: 11176512
+2024-12-03 09:14:40,300 [aper_bn.py] => Learning on 0-5
+2024-12-03 09:15:23,390 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-03 09:15:23,392 [trainer.py] => prefix: exp
+2024-12-03 09:15:23,392 [trainer.py] => dataset: cifar224
+2024-12-03 09:15:23,393 [trainer.py] => memory_size: 2000
+2024-12-03 09:15:23,393 [trainer.py] => memory_per_class: 20
+2024-12-03 09:15:23,393 [trainer.py] => fixed_memory: False
+2024-12-03 09:15:23,394 [trainer.py] => shuffle: True
+2024-12-03 09:15:23,394 [trainer.py] => init_cls: 5
+2024-12-03 09:15:23,395 [trainer.py] => increment: 5
+2024-12-03 09:15:23,395 [trainer.py] => model_name: aper_bn
+2024-12-03 09:15:23,395 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-03 09:15:23,395 [trainer.py] => device: [device(type='cpu')]
+2024-12-03 09:15:23,395 [trainer.py] => seed: 1993
+2024-12-03 09:15:23,395 [trainer.py] => tuned_epoch: 1
+2024-12-03 09:15:23,395 [trainer.py] => init_lr: 0.01
+2024-12-03 09:15:23,395 [trainer.py] => batch_size: 192
+2024-12-03 09:15:24,983 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-03 09:15:26,406 [trainer.py] => All params: 11176512
+2024-12-03 09:15:26,406 [trainer.py] => Trainable params: 11176512
+2024-12-03 09:15:26,407 [aper_bn.py] => Learning on 0-5
+2024-12-03 09:17:34,529 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-12-03 09:22:20,167 [trainer.py] => No NME accuracy.
+2024-12-03 09:22:20,167 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-12-03 09:22:20,168 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-12-03 09:22:20,168 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-12-03 09:22:20,168 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-12-03 09:22:20,169 [trainer.py] => All params: 22358145
+2024-12-03 09:22:20,170 [trainer.py] => Trainable params: 22358145
+2024-12-03 09:22:20,171 [aper_bn.py] => Learning on 5-10
+2024-12-03 09:25:17,692 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-03 09:25:17,692 [trainer.py] => prefix: exp
+2024-12-03 09:25:17,693 [trainer.py] => dataset: cifar224
+2024-12-03 09:25:17,693 [trainer.py] => shuffle: True
+2024-12-03 09:25:17,693 [trainer.py] => init_cls: 5
+2024-12-03 09:25:17,694 [trainer.py] => increment: 5
+2024-12-03 09:25:17,694 [trainer.py] => model_name: aper_bn
+2024-12-03 09:25:17,694 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-03 09:25:17,695 [trainer.py] => device: [device(type='cpu')]
+2024-12-03 09:25:17,696 [trainer.py] => seed: 1993
+2024-12-03 09:25:17,696 [trainer.py] => tuned_epoch: 1
+2024-12-03 09:25:17,697 [trainer.py] => init_lr: 0.01
+2024-12-03 09:25:17,697 [trainer.py] => batch_size: 192
+2024-12-03 09:25:19,125 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-03 09:25:19,771 [trainer.py] => All params: 11176512
+2024-12-03 09:25:19,772 [trainer.py] => Trainable params: 11176512
+2024-12-03 09:25:19,772 [aper_bn.py] => Learning on 0-5
+2024-12-03 09:27:22,709 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-12-03 09:41:37,394 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-03 09:41:37,395 [trainer.py] => prefix: exp
+2024-12-03 09:41:37,395 [trainer.py] => dataset: cifar224
+2024-12-03 09:41:37,395 [trainer.py] => shuffle: True
+2024-12-03 09:41:37,395 [trainer.py] => init_cls: 5
+2024-12-03 09:41:37,396 [trainer.py] => increment: 5
+2024-12-03 09:41:37,396 [trainer.py] => model_name: aper_bn
+2024-12-03 09:41:37,396 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-03 09:41:37,397 [trainer.py] => device: [device(type='cpu')]
+2024-12-03 09:41:37,397 [trainer.py] => seed: 1993
+2024-12-03 09:41:37,397 [trainer.py] => tuned_epoch: 1
+2024-12-03 09:41:37,397 [trainer.py] => init_lr: 0.01
+2024-12-03 09:41:37,398 [trainer.py] => batch_size: 192
+2024-12-03 09:41:39,229 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-03 09:41:40,811 [trainer.py] => All params: 11176512
+2024-12-03 09:41:40,811 [trainer.py] => Trainable params: 11176512
+2024-12-03 09:41:40,814 [aper_bn.py] => Learning on 0-5
+2024-12-03 09:44:14,685 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-12-03 09:49:52,840 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-12-03 09:49:52,841 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-12-03 09:49:52,841 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-12-03 09:49:52,842 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-12-03 09:49:52,843 [trainer.py] => All params: 22358145
+2024-12-03 09:49:52,844 [trainer.py] => Trainable params: 22358145
+2024-12-03 09:49:52,847 [aper_bn.py] => Learning on 5-10
+2024-12-03 09:54:02,491 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-03 09:54:02,491 [trainer.py] => prefix: exp
+2024-12-03 09:54:02,491 [trainer.py] => dataset: cifar224
+2024-12-03 09:54:02,491 [trainer.py] => shuffle: True
+2024-12-03 09:54:02,491 [trainer.py] => init_cls: 5
+2024-12-03 09:54:02,491 [trainer.py] => increment: 5
+2024-12-03 09:54:02,491 [trainer.py] => model_name: aper_bn
+2024-12-03 09:54:02,491 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-03 09:54:02,491 [trainer.py] => device: [device(type='cpu')]
+2024-12-03 09:54:02,491 [trainer.py] => seed: 1993
+2024-12-03 09:54:02,491 [trainer.py] => tuned_epoch: 1
+2024-12-03 09:54:02,491 [trainer.py] => init_lr: 0.01
+2024-12-03 09:54:02,491 [trainer.py] => batch_size: 192
+2024-12-03 09:54:03,952 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-03 09:54:04,610 [trainer.py] => All params: 11176512
+2024-12-03 09:54:04,610 [trainer.py] => Trainable params: 11176512
+2024-12-03 09:54:04,612 [aper_bn.py] => Learning on 0-5
+2024-12-03 09:56:24,789 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-12-03 10:01:14,956 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-12-03 10:01:14,957 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-12-03 10:01:14,957 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-12-03 10:01:14,958 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-12-03 10:01:14,958 [trainer.py] => All params: 22358145
+2024-12-03 10:01:14,959 [trainer.py] => Trainable params: 22358145
+2024-12-03 10:01:14,962 [aper_bn.py] => Learning on 5-10
+2024-12-03 10:07:57,081 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-03 10:07:57,097 [trainer.py] => prefix: exp
+2024-12-03 10:07:57,097 [trainer.py] => dataset: cifar224
+2024-12-03 10:07:57,097 [trainer.py] => shuffle: True
+2024-12-03 10:07:57,097 [trainer.py] => init_cls: 5
+2024-12-03 10:07:57,097 [trainer.py] => increment: 5
+2024-12-03 10:07:57,097 [trainer.py] => model_name: aper_bn
+2024-12-03 10:07:57,097 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-03 10:07:57,097 [trainer.py] => device: [device(type='cpu')]
+2024-12-03 10:07:57,097 [trainer.py] => seed: 1993
+2024-12-03 10:07:57,097 [trainer.py] => tuned_epoch: 1
+2024-12-03 10:07:57,097 [trainer.py] => init_lr: 0.01
+2024-12-03 10:07:57,097 [trainer.py] => batch_size: 192
+2024-12-03 10:07:58,557 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-03 10:07:59,111 [trainer.py] => All params: 11176512
+2024-12-03 10:07:59,113 [trainer.py] => Trainable params: 11176512
+2024-12-03 10:07:59,113 [aper_bn.py] => Learning on 0-5
+2024-12-03 10:10:04,729 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00
+2024-12-03 10:14:35,521 [trainer.py] => CNN: {'total': np.float64(91.4), '00-09': np.float64(91.4), 'old': 0, 'new': np.float64(91.4)}
+2024-12-03 10:14:35,521 [trainer.py] => CNN top1 curve: [np.float64(91.4)]
+2024-12-03 10:14:35,521 [trainer.py] => CNN top5 curve: [np.float64(100.0)]
+
+2024-12-03 10:14:35,522 [trainer.py] => Average Accuracy (CNN): 91.4
+2024-12-03 10:14:35,522 [trainer.py] => All params: 22358145
+2024-12-03 10:14:35,523 [trainer.py] => Trainable params: 22358145
+2024-12-03 10:14:35,524 [aper_bn.py] => Learning on 5-10
+2024-12-03 10:19:51,476 [trainer.py] => CNN: {'total': np.float64(76.5), '00-09': np.float64(76.5), 'old': np.float64(79.0), 'new': np.float64(74.0)}
+2024-12-03 10:19:51,476 [trainer.py] => CNN top1 curve: [np.float64(91.4), np.float64(76.5)]
+2024-12-03 10:19:51,476 [trainer.py] => CNN top5 curve: [np.float64(100.0), np.float64(97.4)]
+
+2024-12-03 10:19:51,476 [trainer.py] => Average Accuracy (CNN): 83.95
+2024-12-03 10:19:51,476 [trainer.py] => All params: 22363265
+2024-12-03 10:19:51,476 [trainer.py] => Trainable params: 22363265
+2024-12-03 10:19:51,476 [aper_bn.py] => Learning on 10-15
+2024-12-03 10:23:00,586 [trainer.py] => config: .\exps\aper_bn\cifar224_5_5_resnet18_bn.json
+2024-12-03 10:23:00,586 [trainer.py] => prefix: exp
+2024-12-03 10:23:00,586 [trainer.py] => dataset: cifar224
+2024-12-03 10:23:00,586 [trainer.py] => shuffle: True
+2024-12-03 10:23:00,586 [trainer.py] => init_cls: 5
+2024-12-03 10:23:00,586 [trainer.py] => increment: 5
+2024-12-03 10:23:00,586 [trainer.py] => model_name: aper_bn
+2024-12-03 10:23:00,592 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-03 10:23:00,592 [trainer.py] => device: [device(type='cpu')]
+2024-12-03 10:23:00,592 [trainer.py] => seed: 1993
+2024-12-03 10:23:00,593 [trainer.py] => tuned_epoch: 1
+2024-12-03 10:23:00,593 [trainer.py] => init_lr: 0.01
+2024-12-03 10:23:00,593 [trainer.py] => batch_size: 192
+2024-12-03 10:23:02,167 [data_manager.py] => [68, 56, 78, 8, 23, 84, 90, 65, 74, 76, 40, 89, 3, 92, 55, 9, 26, 80, 43, 38, 58, 70, 77, 1, 85, 19, 17, 50, 28, 53, 13, 81, 45, 82, 6, 59, 83, 16, 15, 44, 91, 41, 72, 60, 79, 52, 20, 10, 31, 54, 37, 95, 14, 71, 96, 98, 97, 2, 64, 66, 42, 22, 35, 86, 24, 34, 87, 21, 99, 0, 88, 27, 18, 94, 11, 12, 47, 25, 30, 46, 62, 69, 36, 61, 7, 63, 75, 5, 32, 4, 51, 48, 73, 93, 39, 67, 29, 49, 57, 33]
+2024-12-03 10:23:02,802 [trainer.py] => All params: 11176512
+2024-12-03 10:23:02,802 [trainer.py] => Trainable params: 11176512
+2024-12-03 10:23:02,803 [aper_bn.py] => Learning on 0-5
+2024-12-03 10:25:19,925 [aper_bn.py] => Task 0, Epoch 1/40 => Loss 0.000, Train_accy 0.00, Test_accy 0.00

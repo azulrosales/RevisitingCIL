@@ -1,0 +1,14 @@
+{
+    "prefix": "exp",
+    "dataset": "cifar224",
+    "shuffle": true,
+    "init_cls": 5,
+    "increment": 5,
+    "model_name": "aper_bn",
+    "convnet_type": "pretrained_resnet18",
+    "device": "-1",
+    "seed": 1993,
+    "tuned_epoch": 1,
+    "init_lr": 0.01,
+    "batch_size": 192
+}
