@@ -9,13 +9,12 @@ import os
 
 
 def train(args):
-    seed_list = copy.deepcopy(args["seed"])
+
     device = copy.deepcopy(args["device"])
 
-    for seed in seed_list:
-        args["seed"] = seed
-        args["device"] = device
-        _train(args)
+    args["seed"] = copy.deepcopy(args["seed"])
+    args["device"] = device
+    _train(args)
 
 
 def _train(args):
@@ -63,41 +62,21 @@ def _train(args):
             "Trainable params: {}".format(count_parameters(model._network, True))
         )
         model.incremental_train(data_manager)
-        cnn_accy, nme_accy = model.eval_task()
+        cnn_accy = model.eval_task()
         model.after_task()
+        print('----MODEL------')
+        print(model._network)
+        
+        logging.info("CNN: {}".format(cnn_accy["grouped"]))
 
-        if nme_accy is not None:
-            logging.info("CNN: {}".format(cnn_accy["grouped"]))
-            logging.info("NME: {}".format(nme_accy["grouped"]))
+        cnn_curve["top1"].append(cnn_accy["top1"])
+        cnn_curve["top5"].append(cnn_accy["top5"])
 
-            cnn_curve["top1"].append(cnn_accy["top1"])
-            cnn_curve["top5"].append(cnn_accy["top5"])
+        logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
+        logging.info("CNN top5 curve: {}\n".format(cnn_curve["top5"]))
 
-            nme_curve["top1"].append(nme_accy["top1"])
-            nme_curve["top5"].append(nme_accy["top5"])
-
-            logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-            logging.info("CNN top5 curve: {}".format(cnn_curve["top5"]))
-            logging.info("NME top1 curve: {}".format(nme_curve["top1"]))
-            logging.info("NME top5 curve: {}\n".format(nme_curve["top5"]))
-
-            print('Average Accuracy (CNN):', sum(cnn_curve["top1"])/len(cnn_curve["top1"]))
-            print('Average Accuracy (NME):', sum(nme_curve["top1"])/len(nme_curve["top1"]))
-
-            logging.info("Average Accuracy (CNN): {}".format(sum(cnn_curve["top1"])/len(cnn_curve["top1"])))
-            logging.info("Average Accuracy (NME): {}".format(sum(nme_curve["top1"])/len(nme_curve["top1"])))
-        else:
-            logging.info("No NME accuracy.")
-            logging.info("CNN: {}".format(cnn_accy["grouped"]))
-
-            cnn_curve["top1"].append(cnn_accy["top1"])
-            cnn_curve["top5"].append(cnn_accy["top5"])
-
-            logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-            logging.info("CNN top5 curve: {}\n".format(cnn_curve["top5"]))
-
-            print('Average Accuracy (CNN):', sum(cnn_curve["top1"])/len(cnn_curve["top1"]))
-            logging.info("Average Accuracy (CNN): {}".format(sum(cnn_curve["top1"])/len(cnn_curve["top1"])))
+        print('Average Accuracy (CNN):', sum(cnn_curve["top1"])/len(cnn_curve["top1"]))
+        logging.info("Average Accuracy (CNN): {}".format(sum(cnn_curve["top1"])/len(cnn_curve["top1"])))
 
     
 def _set_device(args):

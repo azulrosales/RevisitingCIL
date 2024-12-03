@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
-from utils.data import iCIFAR10, iCIFAR100, iImageNet100, iImageNet1000, iCIFAR224, iImageNetR,iImageNetA,CUB, objectnet, omnibenchmark, vtab
+from utils.data import iCIFAR224
 
 
 class DataManager(object):
@@ -213,29 +213,8 @@ def _map_new_class_index(y, order):
 
 def _get_idata(dataset_name):
     name = dataset_name.lower()
-    if name == "cifar10":
-        return iCIFAR10()
-    elif name == "cifar100":
-        return iCIFAR100()
-    elif name == "imagenet1000":
-        return iImageNet1000()
-    elif name == "imagenet100":
-        return iImageNet100()
-    elif name== "cifar224":
+    if name== "cifar224":
         return iCIFAR224()
-    elif name== "imagenetr":
-        return iImageNetR()
-    elif name=="imageneta":
-        return iImageNetA()
-    elif name=="cub":
-        return CUB()
-    elif name=="objectnet":
-        return objectnet()
-    elif name=="omnibenchmark":
-        return omnibenchmark()
-    elif name=="vtab":
-        return vtab()
-
     else:
         raise NotImplementedError("Unknown dataset {}.".format(dataset_name))
 
@@ -249,32 +228,3 @@ def pil_loader(path):
     with open(path, "rb") as f:
         img = Image.open(f)
         return img.convert("RGB")
-
-
-def accimage_loader(path):
-    """
-    Ref:
-    https://pytorch.org/docs/stable/_modules/torchvision/datasets/folder.html#ImageFolder
-    accimage is an accelerated Image loader and preprocessor leveraging Intel IPP.
-    accimage is available on conda-forge.
-    """
-    import accimage
-
-    try:
-        return accimage.Image(path)
-    except IOError:
-        # Potentially a decoding problem, fall back to PIL.Image
-        return pil_loader(path)
-
-
-def default_loader(path):
-    """
-    Ref:
-    https://pytorch.org/docs/stable/_modules/torchvision/datasets/folder.html#ImageFolder
-    """
-    from torchvision import get_image_backend
-
-    if get_image_backend() == "accimage":
-        return accimage_loader(path)
-    else:
-        return pil_loader(path)

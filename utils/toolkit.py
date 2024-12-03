@@ -13,17 +13,6 @@ def tensor2numpy(x):
     return x.cpu().data.numpy() if x.is_cuda else x.data.numpy()
 
 
-def target2onehot(targets, n_classes):
-    onehot = torch.zeros(targets.shape[0], n_classes).to(targets.device)
-    onehot.scatter_(dim=1, index=targets.long().view(-1, 1), value=1.0)
-    return onehot
-
-
-def makedirs(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
-
-
 def accuracy(y_pred, y_true, nb_old, increment=10):
     assert len(y_pred) == len(y_true), "Data length error."
     all_acc = {}
