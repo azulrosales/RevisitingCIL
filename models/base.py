@@ -36,9 +36,9 @@ class BaseLearner(object):
 
     def _evaluate(self, y_pred, y_true):
         ret = {}
-        grouped = accuracy(y_pred.T[0], y_true, self._known_classes)
-        ret["grouped"] = grouped
-        ret["top1"] = grouped["total"]
+        per_class = accuracy(y_pred.T[0], y_true, self._known_classes)
+        ret["per_class"] = per_class
+        ret["top1"] = per_class["total"]
         ret["top{}".format(self.topk)] = np.around(
             (y_pred.T == np.tile(y_true, (self.topk, 1))).sum() * 100 / len(y_true),
             decimals=2,

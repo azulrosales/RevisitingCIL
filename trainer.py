@@ -64,7 +64,7 @@ def _train(args):
         #print('----MODEL------')
         #print(model._network)
         
-        logging.info("CNN: {}".format(cnn_accy["grouped"]))
+        logging.info("CNN: {}".format(cnn_accy["per_class"]))
 
         cnn_curve["top1"].append(cnn_accy["top1"])
         #cnn_curve["top5"].append(cnn_accy["top5"])
