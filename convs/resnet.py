@@ -244,7 +244,12 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
             print("Downloading model weights...")
             urllib.request.urlretrieve(url, weights_path)
             print("Download complete!")
-        model.load_state_dict(torch.load(weights_path, weights_only=True), strict=False)  # Load downloaded weights
+        model.load_state_dict(torch.load(weights_path, weights_only=True), strict=False)
+        # For older torch versions:
+        # state_dict = torch.load(weights_path)
+        # if "model_state_dict" in state_dict:  
+        #     state_dict = state_dict["model_state_dict"]
+        # model.load_state_dict(state_dict, strict=False)
     return model
 
 

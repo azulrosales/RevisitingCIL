@@ -78,6 +78,11 @@ class FruitQuality(iData):
         data = ImageFolder(root=path)
 
         train_dataset, test_dataset = random_split(data, [0.7, 0.3])
+        # For older torch versions:
+        # train_dataset, test_dataset = random_split(data, [0.7, 0.3]) #not supported by old torch versions
+        # train_size = int(0.7 * len(data))
+        # test_size = len(data) - train_size
+        # train_dataset, test_dataset = random_split(data, [train_size, test_size])
 
         self.train_data, self.train_targets = split_images_labels(train_dataset.dataset.imgs)
         self.test_data, self.test_targets = split_images_labels(test_dataset.dataset.imgs)
