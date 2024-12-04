@@ -35,7 +35,6 @@ def build_transform(is_train):
         t.append(transforms.CenterCrop(input_size))
     t.append(transforms.ToTensor())
     
-    # return transforms.Compose(t)
     return t
 
 
