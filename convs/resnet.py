@@ -6,10 +6,7 @@ import os
 import urllib.request
 import torch
 import torch.nn as nn
-try:
-    from torchvision.models.utils import load_state_dict_from_url
-except:
-    from torch.hub import load_state_dict_from_url
+from packaging import version
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50']
 
@@ -245,11 +242,16 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
             urllib.request.urlretrieve(url, weights_path)
             print("Download complete!")
         model.load_state_dict(torch.load(weights_path, weights_only=True), strict=False)
-        # For older torch versions:
-        # state_dict = torch.load(weights_path)
-        # if "model_state_dict" in state_dict:  
-        #     state_dict = state_dict["model_state_dict"]
-        # model.load_state_dict(state_dict, strict=False)
+
+        if version.parse(torch.__version__) >= version.parse("1.6.0"):
+            model.load_state_dict(torch.load(weights_path, weights_only=True), strict=False)
+        else:
+            # For older PyTorch versions
+            state_dict = torch.load(weights_path)
+            if "model_state_dict" in state_dict:  
+                state_dict = state_dict["model_state_dict"]
+            model.load_state_dict(state_dict, strict=False)
+
     return model
 
 

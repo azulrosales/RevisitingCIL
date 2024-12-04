@@ -228,3 +228,33 @@
 2024-12-04 12:03:03,074 [trainer.py] => All params: 11176512
 2024-12-04 12:03:03,075 [trainer.py] => Trainable params: 11176512
 2024-12-04 12:03:03,076 [aper_bn.py] => Learning on 0-2
+2024-12-04 12:14:26,957 [trainer.py] => config: .\exps\aper_bn\fruit_quality_resnet18.json
+2024-12-04 12:14:26,957 [trainer.py] => prefix: exp
+2024-12-04 12:14:26,958 [trainer.py] => dataset: fruit-quality
+2024-12-04 12:14:26,958 [trainer.py] => shuffle: True
+2024-12-04 12:14:26,958 [trainer.py] => init_cls: 2
+2024-12-04 12:14:26,959 [trainer.py] => increment: 2
+2024-12-04 12:14:26,959 [trainer.py] => model_name: aper_bn
+2024-12-04 12:14:26,959 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-04 12:14:26,960 [trainer.py] => device: [device(type='cpu')]
+2024-12-04 12:14:26,960 [trainer.py] => seed: 1993
+2024-12-04 12:14:26,961 [trainer.py] => tuned_epoch: 1
+2024-12-04 12:14:26,961 [trainer.py] => init_lr: 0.01
+2024-12-04 12:14:26,961 [trainer.py] => batch_size: 192
+2024-12-04 12:15:00,423 [trainer.py] => config: .\exps\aper_bn\fruit_quality_resnet18.json
+2024-12-04 12:15:00,423 [trainer.py] => prefix: exp
+2024-12-04 12:15:00,424 [trainer.py] => dataset: fruit-quality
+2024-12-04 12:15:00,424 [trainer.py] => shuffle: True
+2024-12-04 12:15:00,424 [trainer.py] => init_cls: 2
+2024-12-04 12:15:00,425 [trainer.py] => increment: 2
+2024-12-04 12:15:00,425 [trainer.py] => model_name: aper_bn
+2024-12-04 12:15:00,426 [trainer.py] => convnet_type: pretrained_resnet18
+2024-12-04 12:15:00,426 [trainer.py] => device: [device(type='cpu')]
+2024-12-04 12:15:00,426 [trainer.py] => seed: 1993
+2024-12-04 12:15:00,426 [trainer.py] => tuned_epoch: 1
+2024-12-04 12:15:00,427 [trainer.py] => init_lr: 0.01
+2024-12-04 12:15:00,427 [trainer.py] => batch_size: 192
+2024-12-04 12:15:01,197 [data_manager.py] => [26, 19, 24, 2, 8, 13, 10, 6, 15, 18, 14, 21, 12, 23, 11, 5, 0, 20, 4, 22, 9, 7, 16, 3, 27, 17, 25, 1]
+2024-12-04 12:15:02,161 [trainer.py] => All params: 11176512
+2024-12-04 12:15:02,162 [trainer.py] => Trainable params: 11176512
+2024-12-04 12:15:02,163 [aper_bn.py] => Learning on 0-2

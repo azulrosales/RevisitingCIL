@@ -1,8 +1,10 @@
 import numpy as np
 import kagglehub
+import torch
 from torch.utils.data import random_split
 from torchvision import datasets, transforms
 from torchvision.datasets import ImageFolder
+from packaging import version
 from utils.toolkit import split_images_labels
 
 
@@ -77,12 +79,13 @@ class FruitQuality(iData):
         path = kagglehub.dataset_download("muhammad0subhan/fruit-and-vegetable-disease-healthy-vs-rotten") + '/Fruit And Vegetable Diseases Dataset'
         data = ImageFolder(root=path)
 
-        train_dataset, test_dataset = random_split(data, [0.7, 0.3])
-        # For older torch versions:
-        # train_dataset, test_dataset = random_split(data, [0.7, 0.3]) #not supported by old torch versions
-        # train_size = int(0.7 * len(data))
-        # test_size = len(data) - train_size
-        # train_dataset, test_dataset = random_split(data, [train_size, test_size])
-
+        if version.parse(torch.__version__) >= version.parse("1.6.0"):
+            train_dataset, test_dataset = random_split(data, [0.7, 0.3])
+        else:
+            # For older PyTorch versions
+            train_size = int(0.7 * len(data))
+            test_size = len(data) - train_size
+            train_dataset, test_dataset = random_split(data, [train_size, test_size])
+            
         self.train_data, self.train_targets = split_images_labels(train_dataset.dataset.imgs)
         self.test_data, self.test_targets = split_images_labels(test_dataset.dataset.imgs)
