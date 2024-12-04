@@ -11,7 +11,7 @@ class BaseLearner(object):
         self._cur_task = -1
         self._known_classes = 0
         self._network = None
-        self.topk = 5
+        self.topk = 2
         self._device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self._multiple_gpus = args["device"]
 

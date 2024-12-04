@@ -61,16 +61,16 @@ def _train(args):
         model.incremental_train(data_manager)
         cnn_accy = model.eval_task()
         model.after_task()
-        print('----MODEL------')
-        print(model._network)
+        #print('----MODEL------')
+        #print(model._network)
         
         logging.info("CNN: {}".format(cnn_accy["grouped"]))
 
         cnn_curve["top1"].append(cnn_accy["top1"])
-        cnn_curve["top5"].append(cnn_accy["top5"])
+        #cnn_curve["top5"].append(cnn_accy["top5"])
 
         logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-        logging.info("CNN top5 curve: {}\n".format(cnn_curve["top5"]))
+        #logging.info("CNN top5 curve: {}\n".format(cnn_curve["top5"]))
 
         print('Average Accuracy (CNN):', sum(cnn_curve["top1"])/len(cnn_curve["top1"]))
         logging.info("Average Accuracy (CNN): {}".format(sum(cnn_curve["top1"])/len(cnn_curve["top1"])))

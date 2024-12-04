@@ -38,33 +38,26 @@ def build_transform(is_train):
     # return transforms.Compose(t)
     return t
 
+
 class iCIFAR224(iData):
     use_path = False
     
     train_trsf = build_transform(True)
     test_trsf = build_transform(False)
-    common_trsf = [
-        # transforms.ToTensor(),
-    ]
+    common_trsf = []
 
     class_order = np.arange(100).tolist()
 
     def download_data(self):
         train_dataset = datasets.cifar.CIFAR100("./data", train=True, download=True)
         test_dataset = datasets.cifar.CIFAR100("./data", train=False, download=True)
-        self.train_data, self.train_targets = train_dataset.data, np.array(
-            train_dataset.targets
-        )
-        self.test_data, self.test_targets = test_dataset.data, np.array(
-            test_dataset.targets
-        )
-        print('self.train_data:', self.train_data)
-        print('Type of self.train_data:', type(self.train_data))
-        print('self.train_targets:', self.train_targets)
-        print('Type of self.train_targets:', type(self.train_targets))
+
+        self.train_data, self.train_targets = train_dataset.data, np.array(train_dataset.targets)
+        self.test_data, self.test_targets = test_dataset.data, np.array(test_dataset.targets)
+
 
 class FruitQuality(iData):
-    use_path = False
+    use_path = True
     
     train_trsf = build_transform(True)
     test_trsf = build_transform(False)
@@ -76,7 +69,7 @@ class FruitQuality(iData):
             return img
         
     common_trsf = [
-        ConvertToRGB()
+        #ConvertToRGB()
     ]
 
     class_order = np.arange(28).tolist()
