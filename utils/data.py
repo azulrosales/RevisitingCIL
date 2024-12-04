@@ -79,9 +79,9 @@ class FruitQuality(iData):
         path = kagglehub.dataset_download("muhammad0subhan/fruit-and-vegetable-disease-healthy-vs-rotten") + '/Fruit And Vegetable Diseases Dataset'
         data = ImageFolder(root=path)
 
-        if version.parse(torch.__version__) >= version.parse("1.6.0"):
+        try:
             train_dataset, test_dataset = random_split(data, [0.7, 0.3])
-        else:
+        except ValueError:
             # For older PyTorch versions
             train_size = int(0.7 * len(data))
             test_size = len(data) - train_size

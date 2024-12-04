@@ -241,11 +241,10 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
             print("Downloading model weights...")
             urllib.request.urlretrieve(url, weights_path)
             print("Download complete!")
-        model.load_state_dict(torch.load(weights_path, weights_only=True), strict=False)
 
-        if version.parse(torch.__version__) >= version.parse("1.6.0"):
+        try:
             model.load_state_dict(torch.load(weights_path, weights_only=True), strict=False)
-        else:
+        except TypeError: 
             # For older PyTorch versions
             state_dict = torch.load(weights_path)
             if "model_state_dict" in state_dict:  

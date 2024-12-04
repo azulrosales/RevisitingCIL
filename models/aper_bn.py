@@ -11,7 +11,7 @@ from models.base import BaseLearner
 
 # Tune the model (with forward BN) at first session, and then conduct simple shot.
 
-num_workers = 8
+num_workers = 0
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class Learner(BaseLearner):

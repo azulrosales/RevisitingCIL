@@ -6,7 +6,7 @@
     "increment": 5,
     "model_name": "aper_bn",
     "convnet_type": "pretrained_resnet18",
-    "device": "-1",
+    "device": "0",
     "seed": 1993,
     "tuned_epoch": 10,
     "init_lr": 0.01,
