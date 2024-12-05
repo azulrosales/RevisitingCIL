@@ -1,10 +1,8 @@
 import numpy as np
 import kagglehub
-import torch
 from torch.utils.data import random_split
 from torchvision import datasets, transforms
 from torchvision.datasets import ImageFolder
-from packaging import version
 from utils.toolkit import split_images_labels
 
 
@@ -61,17 +59,8 @@ class FruitQuality(iData):
     use_path = True
     
     train_trsf = build_transform(True)
-    test_trsf = build_transform(False)
-    
-    class ConvertToRGB:
-        def __call__(self, img):
-            if img.mode != "RGB":
-                img = img.convert("RGB")
-            return img
-        
-    common_trsf = [
-        #ConvertToRGB()
-    ]
+    test_trsf = build_transform(False) 
+    common_trsf = []
 
     class_order = np.arange(28).tolist()
 

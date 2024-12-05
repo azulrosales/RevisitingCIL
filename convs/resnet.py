@@ -6,7 +6,6 @@ import os
 import urllib.request
 import torch
 import torch.nn as nn
-from packaging import version
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50']
 

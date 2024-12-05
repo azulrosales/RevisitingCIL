@@ -1,7 +1,4 @@
-import os
 import numpy as np
-import torch
-
 
 def count_parameters(model, trainable=False):
     if trainable:

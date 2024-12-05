@@ -4,7 +4,6 @@ import torch
 from torch import nn
 from tqdm import tqdm
 from torch import optim
-from torch.nn import functional as F
 from torch.utils.data import DataLoader
 from utils.inc_net import SimpleCosineIncrementalNet, MultiBranchCosineIncrementalNet
 from models.base import BaseLearner
@@ -19,8 +18,6 @@ class Learner(BaseLearner):
         super().__init__(args)
         self._network = SimpleCosineIncrementalNet(args)
         self.batch_size = 128
-        self.init_lr = args.get("init_lr", 0.01)
-        self.init_weight_decay = args.get("init_weight_decay", 0.0005)
         self.init_epoch = args.get("init_epoch", 40)
         self.epochs = args.get("epochs", 80)
         self.args = args
@@ -28,7 +25,7 @@ class Learner(BaseLearner):
     def after_task(self):
         self._known_classes = self._total_classes
 
-    def replace_fc(self, trainloader, model, args):
+    def replace_fc(self, trainloader, model):
         model = model.eval()
 
         embedding_list = []
@@ -44,6 +41,7 @@ class Learner(BaseLearner):
         embedding_list = torch.cat(embedding_list, dim=0)
         label_list = torch.cat(label_list, dim=0)
 
+        print('APER BN: Replacing FC layer')
         class_list = np.unique(self.train_dataset.labels)
         for class_index in class_list:
             print('Replacing...', class_index)
@@ -54,52 +52,43 @@ class Learner(BaseLearner):
         return model
 
     def incremental_train(self, data_manager):
-        print('APER BN: INCREMENTAL TRAIN')
+        print('APER BN: Incremental Train')
         self._cur_task += 1
         self._total_classes = self._known_classes + data_manager.get_task_size(self._cur_task)
-        self._network.update_fc(self._total_classes)
-        logging.info("Learning on {}-{}".format(self._known_classes, self._total_classes))
-
-        train_dataset = data_manager.get_dataset(np.arange(self._known_classes, self._total_classes), source="train",
-                                                 mode="train", )
-        self.train_dataset = train_dataset
         self.data_manager = data_manager
+        
+        self._network.update_fc(self._total_classes)
+        logging.info("Learning on {}-{}".format(self._known_classes, self._total_classes-1))
+
+        train_dataset = data_manager.get_dataset(np.arange(self._known_classes, self._total_classes), source="train", mode="train")
+        self.train_dataset = train_dataset
         self.train_loader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=num_workers)
+        
         test_dataset = data_manager.get_dataset(np.arange(0, self._total_classes), source="test", mode="test")
         self.test_loader = DataLoader(test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=num_workers)
 
-        train_dataset_for_protonet = data_manager.get_dataset(np.arange(self._known_classes, self._total_classes),
-                                                              source="train", mode="test", )
-        self.train_loader_for_protonet = DataLoader(train_dataset_for_protonet, batch_size=self.batch_size,
-                                                    shuffle=True, num_workers=num_workers)
+        train_dataset_for_protonet = data_manager.get_dataset(np.arange(self._known_classes, self._total_classes), source="train", mode="test")
+        self.train_loader_for_protonet = DataLoader(train_dataset_for_protonet, batch_size=self.batch_size, shuffle=True, num_workers=num_workers)
 
         if len(self._multiple_gpus) > 1:
             print('Multiple GPUs')
             self._network = nn.DataParallel(self._network, self._multiple_gpus)
-        self._train(self.train_loader, self.test_loader, self.train_loader_for_protonet)
+
+        self._train(self.train_loader, self.train_loader_for_protonet)
+
         if len(self._multiple_gpus) > 1:
             self._network = self._network.module
 
-    def _train(self, train_loader, test_loader, train_loader_for_protonet):
-        print('APER BN: TRAIN')
+    def _train(self, train_loader, train_loader_for_protonet):
         self._network.to(self._device)
 
         if self._cur_task == 0:
-            optimizer = optim.SGD(
-                self._network.parameters(),
-                momentum=0.9,
-                lr=self.init_lr,
-                weight_decay=self.init_weight_decay,
-            )
-
-            scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=self.args['tuned_epoch'])
-            self._init_train(train_loader, test_loader, optimizer, scheduler)
-
+            self._init_train(train_loader)
             self.construct_dual_branch_network()
         else:
             pass
 
-        self.replace_fc(train_loader_for_protonet, self._network, None)
+        self.replace_fc(train_loader_for_protonet, self._network)
 
     def construct_dual_branch_network(self):
         print('APER BN: Constructing MultiBranchCosineIncrementalNet')
@@ -161,7 +150,7 @@ class Learner(BaseLearner):
         # print(running_dict[key_name]['mean'],running_dict[key_name]['var'],running_dict[key_name]['nbt'])
         # print(component.running_mean, component.running_var, component.num_batches_tracked)
 
-    def _init_train(self, train_loader, test_loader, optimizer, scheduler):
+    def _init_train(self, train_loader):
         print('APER BN: Initial Training')
         
         # Print the bn statistics of the current model
@@ -170,29 +159,12 @@ class Learner(BaseLearner):
         # Reset the running statistics of the BN layers
         self.clear_running_mean()
 
-        prog_bar = tqdm(range(self.args['tuned_epoch']))
         # Adapt to the current data via forward passing
+        prog_bar = tqdm(range(self.args['tuned_epoch']), desc='Adapting to new data')
         with torch.no_grad():
-            for _, epoch in enumerate(prog_bar):
+            for epoch in prog_bar:
                 self._network.train()
-                losses = 0.0
                 for i, (_, inputs, targets) in enumerate(train_loader):
                     inputs, targets = inputs.to(self._device), targets.to(self._device)
                     logits = self._network(inputs)["logits"]
                     del logits
-
-            losses = 0.0
-            train_acc = 0.0
-            test_acc = 0.0
-            # test_acc = self._compute_accuracy(self._network, test_loader)
-            info = "Task {}, Epoch {}/{} => Loss {:.3f}, Train_accy {:.2f}, Test_accy {:.2f}".format(
-                self._cur_task,
-                epoch + 1,
-                self.init_epoch,
-                losses / len(train_loader),
-                train_acc,
-                test_acc,
-            )
-            prog_bar.set_description(info)
-
-        logging.info(info)
