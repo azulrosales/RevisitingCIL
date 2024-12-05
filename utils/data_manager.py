@@ -10,7 +10,7 @@ class DataManager(object):
     def __init__(self, dataset_name, shuffle, seed, init_cls, increment):
         self.dataset_name = dataset_name
         self._setup_data(dataset_name, shuffle, seed)
-        assert init_cls <= len(self._class_order), "No enough classes."
+        assert init_cls <= len(self._class_order), "Not enough classes."
         self._increments = [init_cls]
         while sum(self._increments) + increment < len(self._class_order):
             self._increments.append(increment)
