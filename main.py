@@ -15,7 +15,7 @@ def load_json(settings_path):
     return param
 
 def setup_parser():
-    parser = argparse.ArgumentParser(description='Reproduce of multiple continual learning algorthms.')
+    parser = argparse.ArgumentParser(description='Reproduction of multiple continual learning algorithms.')
     parser.add_argument('--config', type=str, default='./exps/finetune.json',
                         help='Json file of settings.')
     return parser
