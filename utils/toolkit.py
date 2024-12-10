@@ -10,7 +10,7 @@ def tensor2numpy(x):
     return x.cpu().data.numpy() if x.is_cuda else x.data.numpy()
 
 
-def accuracy(y_pred, y_true, nb_old):
+def accuracy(y_pred, y_true, nb_old, data_manager):
     assert len(y_pred) == len(y_true), "Data length error."
     all_acc = {}
 
@@ -23,7 +23,8 @@ def accuracy(y_pred, y_true, nb_old):
     unique_classes = np.unique(y_true)
     for class_id in unique_classes:
         idxes = np.where(y_true == class_id)[0]  
-        all_acc[f"class_{class_id}"] = np.around(
+        class_name = data_manager._class_mapping[class_id]
+        all_acc[class_name] = np.around(
             (y_pred[idxes] == y_true[idxes]).sum() * 100 / len(idxes), decimals=2
         )
 

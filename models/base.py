@@ -34,9 +34,9 @@ class BaseLearner(object):
     def after_task(self):
         pass
 
-    def _evaluate(self, y_pred, y_true):
+    def _evaluate(self, y_pred, y_true, data_manager):
         ret = {}
-        per_class = accuracy(y_pred.T[0], y_true, self._known_classes)
+        per_class = accuracy(y_pred.T[0], y_true, self._known_classes, data_manager)
         ret["per_class"] = per_class
         ret["top1"] = per_class["total"]
         ret["top{}".format(self.topk)] = np.around(
@@ -46,9 +46,9 @@ class BaseLearner(object):
 
         return ret
 
-    def eval_task(self):
+    def eval_task(self, data_manager):
         y_pred, y_true = self._eval_cnn(self.test_loader)
-        accuracy = self._evaluate(y_pred, y_true)
+        accuracy = self._evaluate(y_pred, y_true, data_manager)
 
         return accuracy
 

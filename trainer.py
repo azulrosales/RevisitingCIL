@@ -56,7 +56,7 @@ def _train(args):
         logging.info("All params: {}".format(count_parameters(model._network)))
         logging.info("Trainable params: {}".format(count_parameters(model._network, True)))
         model.incremental_train(data_manager)
-        accuracies = model.eval_task()
+        accuracies = model.eval_task(data_manager)
         model.after_task()
         #print('----MODEL------')
         #print(model._network)
