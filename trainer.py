@@ -52,28 +52,16 @@ def _train(args):
     )
     model = factory.get_model(args["model_name"], args)
 
-    cnn_curve = {"top1": [], "top5": []}
     for task in range(data_manager.nb_tasks):
         logging.info("All params: {}".format(count_parameters(model._network)))
-        logging.info(
-            "Trainable params: {}".format(count_parameters(model._network, True))
-        )
+        logging.info("Trainable params: {}".format(count_parameters(model._network, True)))
         model.incremental_train(data_manager)
-        cnn_accy = model.eval_task()
+        accuracies = model.eval_task()
         model.after_task()
         #print('----MODEL------')
         #print(model._network)
         
-        logging.info("CNN: {}".format(cnn_accy["per_class"]))
-
-        cnn_curve["top1"].append(cnn_accy["top1"])
-        #cnn_curve["top5"].append(cnn_accy["top5"])
-
-        logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-        #logging.info("CNN top5 curve: {}\n".format(cnn_curve["top5"]))
-
-        print('Average Accuracy (CNN):', sum(cnn_curve["top1"])/len(cnn_curve["top1"]))
-        logging.info("Average Accuracy (CNN): {}".format(sum(cnn_curve["top1"])/len(cnn_curve["top1"])))
+        logging.info("Accuracy: {}".format(accuracies["per_class"]))
 
     
 def _set_device(args):

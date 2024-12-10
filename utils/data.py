@@ -12,6 +12,7 @@ class iData(object):
     common_trsf = []
     class_order = None
 
+
 def build_transform(is_train):
     input_size = 224
     resize_im = input_size > 32
@@ -83,6 +84,6 @@ class FruitQuality(iData):
         self.test_data, self.test_targets = split_images_labels(test_imgs)
 
         self.class_names = data.classes
-        targets, n_samples = np.unique(self.test_targets, return_counts=True)
+        targets, n_samples = np.unique(self.data, return_counts=True)
         samples_per_class = {self.class_names[target]: count for target, count in zip(targets, n_samples)}
         print('Samples per class:', samples_per_class)
