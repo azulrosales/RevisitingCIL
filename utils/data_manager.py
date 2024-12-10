@@ -75,62 +75,7 @@ class DataManager(object):
             return data, targets, DummyDataset(data, targets, trsf, self.use_path)
         else:
             return DummyDataset(data, targets, trsf, self.use_path)
-
-    def get_dataset_with_split(
-        self, indices, source, mode, appendent=None, val_samples_per_class=0
-    ):
-        if source == "train":
-            x, y = self._train_data, self._train_targets
-        elif source == "test":
-            x, y = self._test_data, self._test_targets
-        else:
-            raise ValueError("Unknown data source {}.".format(source))
-
-        if mode == "train":
-            trsf = transforms.Compose([*self._train_trsf, *self._common_trsf])
-        elif mode == "test":
-            trsf = transforms.Compose([*self._test_trsf, *self._common_trsf])
-        else:
-            raise ValueError("Unknown mode {}.".format(mode))
-
-        train_data, train_targets = [], []
-        val_data, val_targets = [], []
-        for idx in indices:
-            class_data, class_targets = self._select(
-                x, y, low_range=idx, high_range=idx + 1
-            )
-            val_indx = np.random.choice(
-                len(class_data), val_samples_per_class, replace=False
-            )
-            train_indx = list(set(np.arange(len(class_data))) - set(val_indx))
-            val_data.append(class_data[val_indx])
-            val_targets.append(class_targets[val_indx])
-            train_data.append(class_data[train_indx])
-            train_targets.append(class_targets[train_indx])
-
-        if appendent is not None:
-            appendent_data, appendent_targets = appendent
-            for idx in range(0, int(np.max(appendent_targets)) + 1):
-                append_data, append_targets = self._select(
-                    appendent_data, appendent_targets, low_range=idx, high_range=idx + 1
-                )
-                val_indx = np.random.choice(
-                    len(append_data), val_samples_per_class, replace=False
-                )
-                train_indx = list(set(np.arange(len(append_data))) - set(val_indx))
-                val_data.append(append_data[val_indx])
-                val_targets.append(append_targets[val_indx])
-                train_data.append(append_data[train_indx])
-                train_targets.append(append_targets[train_indx])
-
-        train_data, train_targets = np.concatenate(train_data), np.concatenate(
-            train_targets
-        )
-        val_data, val_targets = np.concatenate(val_data), np.concatenate(val_targets)
-
-        return DummyDataset(
-            train_data, train_targets, trsf, self.use_path
-        ), DummyDataset(val_data, val_targets, trsf, self.use_path)
+        
 
     def _setup_data(self, dataset_name, shuffle, seed):
         idata = _get_idata(dataset_name)
@@ -139,6 +84,7 @@ class DataManager(object):
         # Data
         self._train_data, self._train_targets = idata.train_data, idata.train_targets
         self._test_data, self._test_targets = idata.test_data, idata.test_targets
+        self._class_names = idata.class_names
         self.use_path = idata.use_path
 
         # Transforms
@@ -154,13 +100,17 @@ class DataManager(object):
         else:
             order = idata.class_order
         self._class_order = order
-        logging.info(self._class_order)
+        logging.info(f"Class order: {self._class_order}")
 
         # Map indices
-        self._train_targets = _map_new_class_index(
-            self._train_targets, self._class_order
-        )
+        self._train_targets = _map_new_class_index(self._train_targets, self._class_order)
         self._test_targets = _map_new_class_index(self._test_targets, self._class_order)
+
+        # Map class names to the new indices
+        self._class_mapping = {new_idx: self._class_names[old_idx] for new_idx, old_idx in enumerate(self._class_order)}
+
+        # Logging the mapping
+        logging.info(f"Class name mapping: {self._class_mapping}")
 
     def _select(self, x, y, low_range, high_range):
         idxes = np.where(np.logical_and(y >= low_range, y < high_range))[0]

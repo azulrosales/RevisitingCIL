@@ -75,6 +75,14 @@ class FruitQuality(iData):
             train_size = int(0.7 * len(data))
             test_size = len(data) - train_size
             train_dataset, test_dataset = random_split(data, [train_size, test_size])
+
+        train_imgs = [data.imgs[i] for i in train_dataset.indices]
+        test_imgs = [data.imgs[i] for i in test_dataset.indices]
             
-        self.train_data, self.train_targets = split_images_labels(train_dataset.dataset.imgs)
-        self.test_data, self.test_targets = split_images_labels(test_dataset.dataset.imgs)
+        self.train_data, self.train_targets = split_images_labels(train_imgs)
+        self.test_data, self.test_targets = split_images_labels(test_imgs)
+
+        self.class_names = data.classes
+        targets, n_samples = np.unique(self.test_targets, return_counts=True)
+        samples_per_class = {self.class_names[target]: count for target, count in zip(targets, n_samples)}
+        print('Samples per class:', samples_per_class)
