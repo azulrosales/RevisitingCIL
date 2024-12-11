@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from torch import nn
-from utils.toolkit import tensor2numpy, accuracy
+from utils.toolkit import tensor2numpy, accuracy, generate_confusion_matrix
 
 EPSILON = 1e-8
 batch_size = 64
@@ -43,6 +43,8 @@ class BaseLearner(object):
             (y_pred.T == np.tile(y_true, (self.topk, 1))).sum() * 100 / len(y_true),
             decimals=2,
         )
+
+        generate_confusion_matrix(y_true, y_pred, data_manager)
 
         return ret
 

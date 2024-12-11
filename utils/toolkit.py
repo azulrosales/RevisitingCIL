@@ -1,4 +1,10 @@
 import numpy as np
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime
+import os
+
 
 def count_parameters(model, trainable=False):
     if trainable:
@@ -45,6 +51,25 @@ def accuracy(y_pred, y_true, nb_old, data_manager):
     )
 
     return all_acc
+
+def generate_confusion_matrix(y_true, y_pred, data_manager):
+    cm = confusion_matrix(y_true, y_pred.T[0])
+    class_labels = [data_manager._class_mapping[i] for i in range(len(cm))]
+
+    plt.figure(figsize=(18, 10))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=class_labels, yticklabels=class_labels)
+    plt.title('Confusion Matrix')
+    plt.xlabel('Predicted Label')
+    plt.ylabel('True Label')
+    plt.xticks(rotation=90)
+    plt.yticks(rotation=0)
+
+    if not os.path.exists('confusion_matrices'):
+        os.makedirs('confusion_matrices')
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    plt.savefig(f"confusion_matrices/confusion_matrix_{timestamp}.png")
+    plt.close()
 
 
 def split_images_labels(imgs):
