@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
-from utils.data import iCIFAR224, FruitQuality
+from utils.data import iCIFAR224, ProduceQuality
 
 
 class DataManager(object):
@@ -163,8 +163,8 @@ def _get_idata(dataset_name):
     name = dataset_name.lower()
     if name== "cifar224":
         return iCIFAR224()
-    elif name=="fruit-quality":
-        return FruitQuality()
+    elif name=="produce-quality":
+        return ProduceQuality()
     else:
         raise NotImplementedError("Unknown dataset {}.".format(dataset_name))
 

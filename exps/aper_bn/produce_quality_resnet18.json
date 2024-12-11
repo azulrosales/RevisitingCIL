@@ -1,6 +1,6 @@
 {
     "prefix": "exp",
-    "dataset": "fruit-quality",
+    "dataset": "produce-quality",
     "shuffle": true,
     "init_cls": 2,
     "increment": 2,

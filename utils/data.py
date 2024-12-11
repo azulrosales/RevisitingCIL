@@ -56,7 +56,7 @@ class iCIFAR224(iData):
         self.test_data, self.test_targets = test_dataset.data, np.array(test_dataset.targets)
 
 
-class FruitQuality(iData):
+class ProduceQuality(iData):
     use_path = True
     
     train_trsf = build_transform(True)
