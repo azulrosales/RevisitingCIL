@@ -25,13 +25,13 @@ class Learner(BaseLearner):
     def after_task(self):
         self._known_classes = self._total_classes
 
-    def replace_fc(self, trainloader, model):
+    def replace_fc(self, train_loader, model):
         model = model.eval()
 
         embedding_list = []
         label_list = []
         with torch.no_grad():
-            for i, batch in enumerate(trainloader):
+            for i, batch in enumerate(train_loader):
                 (_, data, label) = batch
                 data = data.to(device)
                 label = label.to(device)
