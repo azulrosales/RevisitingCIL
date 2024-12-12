@@ -3,7 +3,6 @@ import numpy as np
 import torch
 from torch import nn
 from tqdm import tqdm
-from torch import optim
 from torch.utils.data import DataLoader
 from utils.inc_net import SimpleCosineIncrementalNet, MultiBranchCosineIncrementalNet
 from models.base import BaseLearner
