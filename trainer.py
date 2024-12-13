@@ -2,10 +2,11 @@ import sys
 import logging
 import copy
 import torch
+import os
+import time
 from utils import factory
 from utils.data_manager import DataManager
 from utils.toolkit import count_parameters
-import os
 
 
 def train(args):
@@ -52,14 +53,26 @@ def _train(args):
     )
     model = factory.get_model(args["model_name"], args)
 
-    for task in range(data_manager.nb_tasks):
+    for session in range(data_manager.incremental_sessions):
+        if session > 0:
+            try:
+                logging.info("Loading saved model for session {}".format(session))
+                model._network.load_state_dict(torch.load('checkpoint.pth'))
+            except FileNotFoundError:
+                logging.warning("No checkpoint found!")
+
         logging.info("All params: {}".format(count_parameters(model._network)))
         logging.info("Trainable params: {}".format(count_parameters(model._network, True)))
-        model.incremental_train(data_manager)
+
+        start_time = time.time()
+        model.incremental_train(data_manager) 
+        logging.info("Training Time for Session {}: {:.2f} seconds".format(session, time.time() - start_time))
+
+        logging.info("Saving the model after session {}".format(session))
+        torch.save(model._network.state_dict(), 'checkpoint.pth')
+
         accuracies = model.eval_task(data_manager)
         model.after_task()
-        #print('----MODEL------')
-        #print(model._network)
         
         logging.info("Accuracy: {}".format(accuracies["per_class"]))
 

@@ -19,7 +19,7 @@ class DataManager(object):
             self._increments.append(offset)
 
     @property
-    def nb_tasks(self):
+    def incremental_sessions(self):
         return len(self._increments)
 
     def get_task_size(self, task):
